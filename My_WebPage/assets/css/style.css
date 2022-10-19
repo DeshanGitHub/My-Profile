@@ -1,8 +1,120 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Farro:wght@500&family=Hurricane&family=KoHo:wght@300;400&family=Oswald&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
+/* CSS VARIABLES */
+:root {
+    --background-v1: #FBFBFF;
+    --theme-color: #4070F4;
+    --text-color-v1: #222222;
+}
+
+/* /CSS VARIABLES */
+
+/* ==================== NAVBAR PORTION ==================== */
+.Navbar-portion {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    user-select: none;
+    z-index: 1000;
+    box-shadow: 0 1px 4px rgb(146 161 176);
+}
+.Navbar-portion .nav-logo span,
+.Navbar-portion .nav-links{
+    display:flex;
+    align-items: center;
+}
+.Navbar-portion .nav-logo span span{
+    color: var(--theme-color);
+    font-weight: 500;
+    font-size: 21px;
+    padding: 13px 0;
+}
+.Navbar-portion .nav-logo span span:last-child{
+    color: var(--text-color-v1);
+}
+.Navbar-portion .nav-links li{
+    padding: 8px;
+}
+.Navbar-portion .nav-links li a{
+    font-size: 17px;
+    font-weight: 500;
+    padding: 5px;
+    color: var(--text-color-v1);
+    transition: all 0.3s linear;
+}
+.Navbar-portion .nav-links li a:hover{
+    color: var(--theme-color);
+}
+/* ==================== /NAVBAR PORTION ==================== */
+
+/* ==================== COMMON CSS ==================== */
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    text-decoration-color: transparent;
+}
+
+.container {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    background: var(--background-v1);
+}
+
+.center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.flex-center-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.grid-x1-12,
+.grid-x1-9 {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    min-height: 1px;
+}
+
+@media (min-width: 1200px) {
+    /* >1200px*/
+    .grid-x1-12 {
+        width: 100%;
+    }
+
+    .grid-x1-9 {
+        width: 70%;
+    }
+}
+
+/* /==================== /COMMON CSS ==================== */
+
+/* /==================== RESPONSIVE WEB(MEDIA QUERY) ==================== */
+@media (min-width: 867px) { /* > 867 */
+    .Navbar-portion .small-nav{
+        display: none;
+    }
+}
+@media (max-width: 868px) { /* < 868 */
+    .Navbar-portion .nav-links{
+        display: none;
+    }
+}
+/* /==================== /RESPONSIVE WEB(MEDIA QUERY) ==================== */
