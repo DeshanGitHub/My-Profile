@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 4</title>
+    <link href="assets/css/normalize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Farro:wght@500&family=Hurricane&family=KoHo:wght@300;400&family=Open+Sans&family=Oswald&family=Playfair+Display&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Slab:wght@300&display=swap"
+          rel="stylesheet">
+
+    <style>
+        body > section > section:nth-child(1) {
+            /*border: 0px solid;*/
+            height: 50px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        body > section > section:nth-child(2) {
+            border: 1px solid;
+            height: 100vh;
+            text-align: center;
+        }
+
+        #cardTittleOne {
+            background-color: red;
+        }
+
+        #cardTittleTwo {
+            background-color: darkblue;
+        }
+
+        #cardTittleThree {
+            background-color: black;
+        }
+
+        #cardTittleFour {
+            background-color: darkred;
+        }
+
+        #sec1 {
+            /* background-color: white;*/
+        }
+
+        #sec2 {
+            background-color: deepskyblue;
+            z-index: 1;
+        }
+
+        #sec3 {
+            background-color: #917a7a;
+        }
+
+        #sec4 {
+            background-color: orangered;
+        }
+
+        h2 {
+            color: white;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-family: 'Roboto Slab', serif;
+
+        }
+
+        h3 {
+            position: relative;
+            top: 25%;
+            font-size: 100px;
+            z-index: 2;
+            font-family: 'Roboto Slab', serif;
+        }
+    </style>
+
+</head>
+<body>
+
+<section>
+    <section id="cardTittleOne">
+        <h2>Card 1</h2>
+    </section>
+    <section id="sec1">
+        <h3>Hello</h3>
+    </section>
+</section>
+
+<section>
+    <section id="cardTittleTwo">
+        <h2>Card 2</h2>
+    </section>
+    <section id="sec2">
+        <h3>How</h3>
+    </section>
+</section>
+
+<section>
+    <section id="cardTittleThree">
+        <h2>Card 3</h2>
+    </section>
+    <section id="sec3">
+        <h3>Are</h3>
+    </section>
+</section>
+
+<section>
+    <section id="cardTittleFour">
+        <h2>Card 4</h2>
+    </section>
+    <section id="sec4">
+        <h3>You..?</h3>
+    </section>
+</section>
+
+</body>
+</html>
