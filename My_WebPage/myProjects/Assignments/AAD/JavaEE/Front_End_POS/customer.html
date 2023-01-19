@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <title>POS System - Customer Form</title>
+
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6a6b6e;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="customer.html">
+                <img alt="Logo" height="48.1875" src="assets/img/posLogo.png" width="184.3125">
+            </a>
+            <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler"
+                    data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="customer.html">Customer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a aria-current="page" class="nav-link" href="item.html">Item</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Order.html">Order</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+<section class="container-fluid">
+    <div class="rounded-3 p-3" style="background-color: #a6b9eb; margin-top: 30px;">
+        <h1 class="text-center mb-3"><i class="bi bi-people-fill m-2"></i>Customer Form</h1>
+    </div>
+
+    <div class="row g-3 align-items-center pb-3 justify-content-between">
+        <div class="col-12 col-md-6 col-xl-6">
+            <div class="input-group mb-3" style="height: 10px;">
+                <input aria-describedby="button-addon2" aria-label="Recipient's username" class="form-control"
+                       id="txtSearchCusID"
+                       placeholder="Search Customer" type="text">
+                <button class="btn btn-primary" id="button-addon2" type="button"><i
+                        class="bi bi-search m-2"></i>Search
+                </button>
+            </div>
+        </div>
+
+        <!--BUTTONS-->
+        <div class="col-12 col-md-5 col-lg-4 col-xl-6">
+            <!--UPDATE CUSTOMER BUTTON-->
+            <button class="btn btn-warning mt-2" id="btnUpdateCustomer"
+                    type="button"><i class="bi bi-person-plus-fill m-2"></i>Update Customer
+            </button>
+            <!--DELETE CUSTOMER BUTTON-->
+            <button class="btn btn-danger mt-2" id="btnDeleteCustomer"
+                    type="button"
+            ><i class="bi bi-person-plus-fill m-2"></i>Delete Customer
+            </button>
+            <!--CLEAR TEXT FIELDS BUTTON-->
+            <button class="btn btn-secondary mt-2" type="button" id="btnClear"><i class="bi bi-backspace m-2"></i>Clear</button>
+            <!--SAVE CUSTOMER BUTTON-->
+            <button class="btn btn-success mt-2" id="btnSaveCustomer"
+                    type="button"
+            ><i class="bi bi-person-plus-fill m-2"></i>Add Customer
+            </button>
+        </div>
+        <!--/BUTTONS-->
+    </div>
+
+    <!--CREATE A CUSTOMER FORM-->
+
+    <form id="customerForm">
+        <div class="row">
+            <div class="mb-3 col-6">
+                <label class="form-label" for="txtCusID">Customer ID</label>
+                <input class="form-control" id="txtCusID" name="cID" placeholder="Customer ID" type="text">
+            </div>
+            <div class="mb-3 col-6">
+                <label class="form-label" for="txtCusName">Customer Name</label>
+                <input class="form-control" id="txtCusName" name="cName" placeholder="Customer Name" type="text">
+            </div>
+            <div class="mb-3 col-6">
+                <label class="form-label" for="txtCusAddress">Customer Address</label>
+                <input class="form-control" id="txtCusAddress" name="cAddress" placeholder="Customer Address"
+                       type="text">
+            </div>
+            <div class="mb-3 col-6">
+                <label class="form-label" for="txtCusPhnNum">Customer Telephone Number</label>
+                <input class="form-control" id="txtCusPhnNum" name="cTelNum" placeholder="Customer Telephone Number"
+                       type="text">
+            </div>
+        </div>
+    </form>
+
+    <!--/CREATE A CUSTOMER FORM-->
+
+    <div class="row align-items-center pt-3">
+        <div class="col-12 mt-2">
+            <div class="table-responsive" style="height: 70vh;">
+                <table class="table table-primary table-striped">
+                    <thead>
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Telephone</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tblCustomerBody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</section>
+
+<script src="assets/jQuery/jquery-3.6.0.min.js"></script>
+<script>
+    let baseUrl = "http://localhost:8080/posBackEnd/"
+
+    loadAllCustomerTable();
+
+    /*CLEAR TEXT FIELDS BUTTON*/
+    $("#btnClear").click(function () {
+        setTextFieldValues("","","","");
+    });
+
+    /*UPDATE CUSTOMER*/
+    $("#btnUpdateCustomer").click(function () {
+        let customerId = $("#txtCusID").val();
+        let customerName = $("#txtCusName").val();
+        let customerAddress = $("#txtCusAddress").val();
+        let customerPhnNum = $("#txtCusPhnNum").val();
+
+        var customer = {
+            id: customerId,
+            name: customerName,
+            address: customerAddress,
+            phnNum: customerPhnNum
+        }
+
+        $.ajax({
+            url: baseUrl+'customer',
+            method: 'PUT',
+            contentType: "application/json",
+            data: JSON.stringify(customer),
+            dataType: 'json',
+            success: function (res) {
+                alert(res.message);
+                loadAllCustomerTable();
+            },
+            error: function (error) {
+                alert(JSON.parse(error.responseText).message);
+            }
+        })
+    });
+
+    /*DELETE CUSTOMER BY ID*/
+    $("#btnDeleteCustomer").click(function () {
+        let id = $("#txtCusID").val();
+
+        $.ajax({
+            url: baseUrl+"customer?cID=" + id + "",
+            method: "delete",
+            dataType: "json",
+            success: function (resp) {
+                alert(resp.message);
+                loadAllCustomerTable();
+            },
+            error: function (error) {
+                alert(JSON.parse(error.responseText).message);
+            }
+        })
+    });
+
+    //SET VALUES FOR THE TEXT FIELDS
+    function setTextFieldValues(id, name, address, phnNum) {
+        $("#txtCusID").val(id);
+        $("#txtCusName").val(name);
+        $("#txtCusAddress").val(address);
+        $("#txtCusPhnNum").val(phnNum);
+    }
+
+    //EVENT BINDING FOR THE ROWS
+    function bindRowClickEvents() {
+        $("#tblCustomerBody>tr").click(function () {
+            let id = $(this).children(":eq(0)").text();
+            let name = $(this).children(":eq(1)").text();
+            let address = $(this).children(":eq(2)").text();
+            let phnNum = $(this).children(":eq(3)").text();
+            // console.log(id, name, address, salary);
+
+            //setting table details values to text fields
+            $('#txtCusID').val(id);
+            $('#txtCusName').val(name);
+            $('#txtCusAddress').val(address);
+            $('#txtCusPhnNum').val(phnNum);
+
+        });
+    }
+
+    /*LOAD CUSTOMER TABLE*/
+    function loadAllCustomerTable() {
+        //enable the loader
+        $("#loader").css('display', 'block');
+        $("#tblCustomerBody").empty();
+        $.ajax({
+            url: baseUrl+"customer",
+            dataType:"json",
+            success: function (resp) {
+                console.log(resp);
+                //remove the loader
+                $("#loader").css('display', 'none');
+
+                for (let cus of resp.data) {
+                    var row = '<tr><td>' + cus.cId + '</td><td>' + cus.cName + '</td><td>' + cus.cAddress + '</td><td>' + cus.cPhnNum + '</td></tr>';
+                    $("#tblCustomerBody").append(row);
+                }
+                bindRowClickEvents();
+                setTextFieldValues("", "", "", "");
+                $("#txtCustomerID").focus();
+            }
+        });
+    }
+
+    /*SAVE CUSTOMER*/
+    $("#btnSaveCustomer").click(function () {
+        var formData = $("#customerForm").serialize();
+
+        $.ajax({
+            url: baseUrl+"customer",
+            method: "post",
+            data: formData,
+            dataType: "json",
+            success: function (resp) {
+                alert(resp.message);
+                loadAllCustomerTable();
+                /*setTextFieldValues("", "", "", "");
+                $("#txtCustomerID").focus();*/
+            },
+            error: function (error) {
+                /*alert(JSON.parse(error.responseText).message);*/
+                console.log(JSON.parse(error.responseText).message);
+                /*alert(error.responseJSON.message);*/
+                alert(JSON.parse(error.responseText).message);
+            }
+        })
+    })
+</script>
+
+
+</body>
+
+</html>
