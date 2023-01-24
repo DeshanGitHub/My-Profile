@@ -16,7 +16,7 @@ public class POSListener implements ServletContextListener {
 
         BasicDataSource bds = new BasicDataSource();
         bds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        bds.setUrl("jdbc:mysql://localhost:3306/aadlearning");
+        bds.setUrl("jdbc:mysql://localhost:3306/javaee_pos");
         bds.setUsername("root");
         bds.setPassword("1234");
         bds.setMaxTotal(2);

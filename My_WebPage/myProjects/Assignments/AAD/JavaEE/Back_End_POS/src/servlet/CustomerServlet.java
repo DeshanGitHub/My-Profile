@@ -29,7 +29,7 @@ public class CustomerServlet extends HttpServlet {
         resp.setContentType("application/json");
 
 
-        try (Connection connection = ((BasicDataSource) getServletContext().getAttribute("dbcp")).getConnection()){
+        try (Connection connection = ((BasicDataSource) getServletContext().getAttribute("dbcp")).getConnection()) {
 
             PreparedStatement psmt2 = connection.prepareStatement("update Customer set Name=?,Address=?,PhoneNumber=? where CID=?");
             psmt2.setObject(4, id);
@@ -67,7 +67,7 @@ public class CustomerServlet extends HttpServlet {
         System.out.println(cID);
 
 
-        try (Connection connection = ((BasicDataSource) getServletContext().getAttribute("dbcp")).getConnection()){
+        try (Connection connection = ((BasicDataSource) getServletContext().getAttribute("dbcp")).getConnection()) {
 
             PreparedStatement psmt = connection.prepareStatement("DELETE FROM Customer WHERE CID=?");
             psmt.setObject(1, cID);
@@ -99,7 +99,7 @@ public class CustomerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("Request Received to Customer servlet doGet method");
 
-        try (Connection connection = ((BasicDataSource) getServletContext().getAttribute("dbcp")).getConnection()){
+        try (Connection connection = ((BasicDataSource) getServletContext().getAttribute("dbcp")).getConnection()) {
 
             PreparedStatement psmt = connection.prepareStatement("SELECT * FROM Customer");
             ResultSet rst = psmt.executeQuery();
@@ -143,9 +143,9 @@ public class CustomerServlet extends HttpServlet {
 
         System.out.println("Customer is " + id + name + address + telNumber);
 
-        if(!id.equals("")){
+        if (!id.equals("")) {
 
-            try (Connection connection = ((BasicDataSource) getServletContext().getAttribute("dbcp")).getConnection()){
+            try (Connection connection = ((BasicDataSource) getServletContext().getAttribute("dbcp")).getConnection()) {
 
                 PreparedStatement psmt1 = connection.prepareStatement("INSERT INTO customer VALUES (?,?,?,?)");
                 psmt1.setObject(1, id);
@@ -174,7 +174,7 @@ public class CustomerServlet extends HttpServlet {
                 resp.setStatus(400);
             }
 
-        }else {
+        } else {
             JsonObjectBuilder jsonObject = Json.createObjectBuilder();
             jsonObject.add("state", "error");
             jsonObject.add("message", "Please enter the Customer ID !!");
