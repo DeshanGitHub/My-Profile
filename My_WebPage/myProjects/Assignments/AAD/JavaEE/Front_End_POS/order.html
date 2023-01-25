@@ -55,12 +55,7 @@
                             <div class="col">
                                 <label class="form-label fw-bold" for="cusCmb">Customer ID:</label>
                                 <select class="form-select" id="cusCmb">
-                                    <!-- <option selected>C001</option>
-                                     <option value="1">C002</option>
-                                     <option value="2">C003</option>
-                                     <option value="3">C004</option>
-                                     <option value="4">C005</option>
-                                     <option value="5">C006</option>-->
+
                                 </select>
                             </div>
                             <div class="col">
@@ -104,10 +99,7 @@
                             <div class="col">
                                 <label class="form-label fw-bold" for="itemCmb">Item:</label>
                                 <select class="form-select" id="itemCmb">
-                                    <!--<option selected>I001</option>
-                                    <option value="1">I001</option>
-                                    <option value="2">I002</option>
-                                    <option value="3">I003</option>-->
+
                                 </select>
                             </div>
                             <div class="col">
@@ -195,7 +187,7 @@
     </div>
     <div class="row">
         <div class="table-responsive" style="height: 30vh;">
-            <table class="table table-primary table-striped">
+            <table class="table table-primary table-striped" id="tblCartTableId">
                 <thead>
                 <tr>
                     <th>Item Code</th>
@@ -215,10 +207,6 @@
 
 </section>
 
-<!--<script crossorigin="anonymous"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>-->
-
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
 <script>
     let baseUrl = "http://localhost:8080/posBackEnd/"
@@ -230,7 +218,6 @@
 
             /*GET THE COMBO BOX SELECTED VALUE*/
             var comboBoxSelectedValue = $("#itemCmb :selected").text();
-            console.log("itemCmb has a value : " + comboBoxSelectedValue);
 
             setItemNamePriceQty(comboBoxSelectedValue);
 
@@ -248,7 +235,6 @@
 
             /*GET THE COMBO BOX SELECTED VALUE*/
             var comboBoxSelectedValue = $("#cusCmb :selected").text();
-            console.log("cusCmb has a value : " + comboBoxSelectedValue);
 
             setCustomerNameAndAddress(comboBoxSelectedValue);
 
@@ -262,6 +248,21 @@
     loadCustomerIdComboBox();
     setDateToTextField();
 
+    /*CLEAR TEXT FIELD AND CART TABLE*/
+    function clearTextFieldsAndCartTable() {
+        $("#txtCusNameInvoice").val("");
+        $("#txtCusAddressInvoice").val("");
+        $("#txtOId").val("");
+        $("#txtItemName").val("");
+        $("#txtPrice").val("");
+        $("#txtQtyOnHand").val("");
+        $("#txtOrderQty").val("");
+        $("#txtBalanceId").val("");
+        $("#txtCashId").val("");
+
+        $("#tblCartTableBody").empty();
+    }
+
     /*FIND CART TABLE IS EMPTY*/
     function isCartTableEmpty() {
         var myRows = $('#tblCartTableBody').find('tr');
@@ -273,11 +274,37 @@
         }
     }
 
+    /*GET THE PURCHASE ORDER BUTTON CLICKED TIME*/
+    function getPurchaseOrderBtnClickedTime() {
+        var dt = new Date();
+        var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+        return time;
+    }
+
+    /*GET ORDERED ITEM DETAILS*/
+    function getOrderedItemDetails() {
+        var myRows = $('#tblCartTableBody').find('tr');
+        var array = [];
+
+        for (let i = 0; i < myRows.length; i++) {
+            let itemCode = $("#tblCartTableBody").children().eq(i).children(":eq(0)").text();
+            let itemQty = $("#tblCartTableBody").children().eq(i).children(":eq(3)").text();
+            let itemCost = $("#tblCartTableBody").children().eq(i).children(":eq(4)").text();
+            array.push({code: itemCode, qty: itemQty, cost: itemCost})
+        }
+        return array;
+    }
+
     /*PURCHASE BUTTON FUNCTION*/
     $("#btnPurchaseId").click(function () {
-        const customerName = $("#txtCusNameInvoice").val();
-        const orderId = $("#txtOId").val();
-        const balance = $("#txtBalanceId").val();
+        let customerName = $("#txtCusNameInvoice").val();
+        let balance = $("#txtBalanceId").val();
+        let orderId = $("#txtOId").val();
+        let customerId = $("#cusCmb :selected").text();
+        let orderDate = $("#Date").val();
+        let orderTime = getPurchaseOrderBtnClickedTime();
+        let orderCost = Number($("#pTotalId").text().replace("/=", ""));
+        let orderDetails = getOrderedItemDetails();
 
         if (customerName !== "") {
             if (orderId !== "") {
@@ -286,7 +313,31 @@
                 } else {
                     if (balance !== "") {
                         if (Number(balance) >= 0) {
-                            alert("ok")
+                            let ob = {
+                                oId: orderId,
+                                cId: customerId,
+                                oDate: orderDate,
+                                oTime: orderTime,
+                                oCost: orderCost,
+                                oDetails: orderDetails
+                            }
+
+                            /*SEND REQUEST*/
+                            $.ajax({
+                                url: baseUrl + "purchase",
+                                method: "post",
+                                dataType: "json",
+                                data: JSON.stringify(ob),
+                                contentType: "application/json",
+                                success: function (resp) {
+                                    alert(resp.message);
+                                    clearTextFieldsAndCartTable();
+                                },
+                                error: function (error) {
+                                    alert(JSON.parse(error.responseText).message);
+                                }
+                            });
+
                         } else {
                             alert("Payment Is Not Enough To Complete The Order, Please Check!!");
                         }
@@ -352,14 +403,12 @@
         var myRows = $('#tblCartTableBody').find('tr');
 
         if (myRows.length === 0) {
-            console.log("first if : " + orderedQty + qtyOnHand);
             if (Number(orderedQty) > Number(qtyOnHand)) {
                 booleanAnswer = true;
             } else {
                 booleanAnswer = false;
             }
         } else {
-            console.log("Second if")
             for (var i = 0; i < myRows.length; i++) {
                 var tableItemId = $(myRows[i]).find('td:eq(0)').html();
                 let tableItemQty = $(myRows[i]).find('td:eq(3)').html();
