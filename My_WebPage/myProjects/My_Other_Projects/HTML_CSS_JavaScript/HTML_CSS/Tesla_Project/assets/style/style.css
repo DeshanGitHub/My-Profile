@@ -1,0 +1,37 @@
+.clsBody{
+    background-image: url("../images/background.jpeg");
+    background-size: 100%;
+    background-position-y: -123.45px;
+}
+
+.clsImgTeslaLogo{
+    width: 120px;
+    margin-left: 40px;
+    margin-top: 13.78px;
+}
+
+.clsListHeadOne{
+    list-style: none;
+    margin-left: 408px;
+    margin-top: -18px;
+}
+
+.clsItemListHead{
+    display: inline;
+    color: white;  
+    font-family: "Gotham";
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 28px;
+}
+
+@font-face{
+    font-family: "Gotham";
+    src: url("../fonts/Gotham.woff2");
+}
+
+.clsListHeadTwo{
+    list-style-type: none;
+    margin-left: 1213px;
+    margin-top: -34px;
+}
