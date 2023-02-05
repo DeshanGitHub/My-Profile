@@ -48,6 +48,7 @@ $("#txtCusPhnNum").keydown(function (event) {
 /* CLEAR BUTTON ON ACTION */
 $("#btnClear").click(function(){
   clearTextFields();
+  $("#txtCusID").focus();
 });
 
 /* SAVE BUTTON ON ACTION */
