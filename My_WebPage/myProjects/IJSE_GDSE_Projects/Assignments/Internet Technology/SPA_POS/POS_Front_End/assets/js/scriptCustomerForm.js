@@ -55,6 +55,8 @@ function checkValidity() {
     }
   }
 
+  /* MANAGE "SAVE BUTTON" ACTIVATION AND DISABLE */
+
   setButtonState(errorCount);
 }
 
@@ -153,6 +155,7 @@ $("#btnClear").click(function () {
 /* SAVE BUTTON ON ACTION */
 $("#btnSaveCustomer").click(function () {
   saveCustomer();
+  checkValidity(customerValidations);
 });
 
 /* SAVE CUSTOMER METHOD */
