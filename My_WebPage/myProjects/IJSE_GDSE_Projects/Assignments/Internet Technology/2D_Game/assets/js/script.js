@@ -6,8 +6,10 @@ function createCheckersTable() {
 
   for (var i = 0; i < 8; i++) {
     for (var j = 0; j < 8; j++) {
-      document.getElementById("d" + divId).innerHTML +=
-        "<div class=" + squareStyle + " id=" + squareId + "></div>";
+      var div = document.createElement("div");
+      div.className = squareStyle;
+      div.id = squareId;
+      document.getElementById("d" + divId).append(div);
 
       if (squareStyle == "yellowSquare") {
         squareStyle = "brownSquare";
