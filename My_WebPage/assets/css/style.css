@@ -10,13 +10,24 @@
 /* CSS VARIABLES */
 :root {
     --background-v1: #FBFBFF;
+    --background-v2: #FFFFFF;
     --theme-color: #4070F4;
     --text-color-v1: #222222;
+    --text-color-v2: #444444;
+    --shadow:   inset 0 1px 0.5px rgba(255, 255, 255, 0.08),
+                0 0.25px 0.4px rgba(0, 0, 0, 0.05),
+                0 3.4px 6px rgba(0, 0, 0, 0.1);
+    --corner-radius: 12px;
 }
 
 /* /CSS VARIABLES */
 
 /* ==================== NAVBAR PORTION ==================== */
+
+.myLogoSvg {
+
+}
+
 .Navbar-portion {
     position: fixed;
     width: 100%;
@@ -28,40 +39,106 @@
     z-index: 1000;
     box-shadow: 0 1px 4px rgb(146 161 176);
 }
+
 .Navbar-portion .nav-logo span,
-.Navbar-portion .nav-links{
-    display:flex;
+.Navbar-portion .nav-links {
+    display: flex;
     align-items: center;
 }
-.Navbar-portion .nav-logo span span{
+
+.Navbar-portion .nav-logo span span {
     color: var(--theme-color);
     font-weight: 500;
     font-size: 21px;
     padding: 13px 0;
 }
-.Navbar-portion .nav-logo span span:last-child{
+
+.Navbar-portion .nav-logo span span:last-child {
     color: var(--text-color-v1);
 }
-.Navbar-portion .nav-links li{
+
+.Navbar-portion .nav-links li {
     padding: 8px;
 }
-.Navbar-portion .nav-links li a{
+
+.Navbar-portion .nav-links li a {
     font-size: 17px;
     font-weight: 500;
     padding: 5px;
     color: var(--text-color-v1);
     transition: all 0.3s linear;
 }
-.Navbar-portion .nav-links li a:hover{
+
+.Navbar-portion .nav-links li a:hover {
     color: var(--theme-color);
+}
+
+/* SMALL NAV */
+.Navbar-portion .small-nav
+
+.Navbar-portion .small-nav .small-drop-down {
+    position: absolute;
+    right: 33px;
+    top: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    z-index: 401;
+    width: 300px;
+    background: var(--background-v2);
+    box-shadow: var(--shadow);
+    border-radius: var(--corner-radius);
+}
+
+.Navbar-portion .small-nav .small-drop-down:after{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background: var(--background-v2);
+    transform: rotate(45deg);
+    top: -7px;
+    right: 39px;
+    box-shadow: rgb(0 0 0.1%) -3px -3px 3px 0;
+}
+
+.Navbar-portion .small-nav .small-drop-down div li{
+    margin-bottom: 10px;
+}
+
+.Navbar-portion .small-nav .small-drop-down div li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2px;
+
+}
+
+.Navbar-portion .small-nav .small-drop-down div li a:hover span{
+    color: var(--theme-color);
+}
+
+.Navbar-portion .small-nav .small-drop-down div li a span.material-icons-round{
+    font-size: 21px;
+    margin: 0;
+    padding: 0;
+}
+
+.Navbar-portion .small-nav .small-drop-down div li a span{
+    transition: all 0.3s linear;
+    font-size: 15px;
+    color: var(--text-color-v2);
 }
 /* ==================== /NAVBAR PORTION ==================== */
 
 /* ==================== COMMON CSS ==================== */
-li{
+li {
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
     text-decoration-color: transparent;
 }
@@ -107,14 +184,18 @@ a{
 /* /==================== /COMMON CSS ==================== */
 
 /* /==================== RESPONSIVE WEB(MEDIA QUERY) ==================== */
-@media (min-width: 867px) { /* > 867 */
-    .Navbar-portion .small-nav{
+@media (min-width: 867px) {
+    /* > 867 */
+    .Navbar-portion .small-nav {
         display: none;
     }
 }
-@media (max-width: 868px) { /* < 868 */
-    .Navbar-portion .nav-links{
+
+@media (max-width: 868px) {
+    /* < 868 */
+    .Navbar-portion .nav-links {
         display: none;
     }
 }
+
 /* /==================== /RESPONSIVE WEB(MEDIA QUERY) ==================== */
