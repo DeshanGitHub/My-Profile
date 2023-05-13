@@ -12,12 +12,15 @@
     --background-v1: #FBFBFF;
     --background-v2: #FFFFFF;
     --theme-color: #4070F4;
+    --white-color:#FFFFFF;
     --text-color-v1: #222222;
     --text-color-v2: #444444;
+    --text-color-v3: #777777;
     --shadow:   inset 0 1px 0.5px rgba(255, 255, 255, 0.08),
                 0 0.25px 0.4px rgba(0, 0, 0, 0.05),
                 0 3.4px 6px rgba(0, 0, 0, 0.1);
     --corner-radius: 12px;
+
 }
 
 /* /CSS VARIABLES */
@@ -145,7 +148,127 @@
 }
 /* ==================== /NAVBAR PORTION ==================== */
 
+/* ====================  BANNER PORTION ==================== */
+.Banner-Portion{
+    padding: 220px 0 80px 0;
+}
+
+.Banner-Portion .grid-x1-6{
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+
+.Banner-Portion .banner-info span{
+    position: relative;
+    background: var(--theme-color);
+    border-radius: var(--corner-radius);
+    padding: 8px 24px;
+    font-weight: 500;
+    font-size: 15px;
+    display: inline-block;
+    margin-bottom: 15px;
+    z-index: 2;
+    transform: scale(0);
+    color: var(--white-color);
+    animation: sayHello 1s 0.5s forwards ease-in-out;
+}
+
+@keyframes sayHello {
+    0%{
+        transform: scale(0.0);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1.0);
+    }
+}
+
+.Banner-Portion .banner-info span:after{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    background: var(--theme-color);
+}
+
+.Banner-Portion .banner-info p{
+    padding: 10px 0;
+}
+
+.Banner-Portion .banner-content li span{
+    font-size: 15px;
+    color: var(--text-color-v2);
+    font-weight: 400;
+    padding: 4px 0;
+}
+
+.Banner-Portion .banner-social-media{
+    margin-top: 30px;
+}
+
+.Banner-Portion .banner-social-media a{
+    font-size: 20px;
+    padding-right: 4px;
+    color: var(--text-color-v2);
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.Banner-Portion .banner-social-media a:hover{
+    color: var(--theme-color);
+}
+
+.Banner-Portion .banner-img{
+    height: 400px;
+    position: relative;
+}
+
+.Banner-Portion .banner-img svg{
+    height: 430px;
+    width: 430px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    fill: var(--theme-color);
+    z-index: 2;
+}
+
+.Banner-Portion .banner-img img{
+    position: absolute;
+    width: 430px;
+    z-index: 5;
+    right: 3px;
+    bottom: 3px;
+}
+/* ==================== /BANNER PORTION ==================== */
+
 /* ==================== COMMON CSS ==================== */
+h1{
+    font-size: 46px;
+    font-weight: 600;
+    color: var(--text-color-v1);
+    margin-left: -3px;
+
+}
+
+h4{
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-color-v1);
+}
+
+p{
+    font-size: 16px;
+    color: var(--text-color-v3);
+    font-weight: 500;
+}
+
 li {
     list-style: none;
 }
@@ -153,6 +276,32 @@ li {
 a {
     text-decoration: none;
     text-decoration-color: transparent;
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    padding: 8px 22px;
+    margin: 25px 0 8px 0;
+    border: none;
+    outline: none;
+    background: var(--theme-color);
+    cursor: pointer;
+    border-radius: var(--corner-radius);
+    font-weight: 500;
+    transition: all 0.3s linear;
+}
+
+.btn span{
+    color: var(--white-color);
+}
+
+.btn span.material-icons-round{
+    font-size: 19px;
+}
+
+.btn:hover{
+    box-shadow: rgba(0, 0, 0, 0.2) 0 10px 20px 0;
 }
 
 .container {
@@ -191,6 +340,16 @@ a {
     .grid-x1-9 {
         width: 70%;
     }
+
+    .grid-x1-6{
+        width: 50%;
+    }
+}
+
+@media (min-width: 967px) {
+    .grid-1g-6{
+        width: 50%;
+    }
 }
 
 /* /==================== /COMMON CSS ==================== */
@@ -209,5 +368,110 @@ a {
         display: none;
     }
 }
+
+@media screen and (max-width: 967px) and (min-width: 768px){
+    /*967px to 768px*/
+    .Banner-Portion .grid-x1-12{
+        flex-direction: column-reverse;
+    }
+
+    .Banner-Portion .banner-img svg{
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .Banner-Portion .banner-img img{
+        bottom: -11px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .Banner-Portion .grid-x1-6{
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 767px) and (min-width: 468px){
+    /*767px to 468px*/
+    .Banner-Portion .grid-x1-12{
+        flex-direction: column-reverse;
+    }
+
+    .Banner-Portion{
+        padding: 150px 0 50px 0;
+    }
+
+    .Banner-Portion .banner-img svg{
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .Banner-Portion .banner-img img{
+        bottom: -11px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .Banner-Portion .grid-x1-6{
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 467px) and (min-width: 368px){
+    /*467px to 368px*/
+    .Banner-Portion .grid-x1-12{
+        flex-direction: column-reverse;
+    }
+
+    .Banner-Portion{
+        padding: 120px 0 50px 0;
+    }
+
+    .Banner-Portion .banner-img svg{
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .Banner-Portion .banner-img img{
+        bottom: -11px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .Banner-Portion .grid-x1-6{
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 367px) and (min-width: 0px){
+    /*467px to 368px*/
+    .Banner-Portion .grid-x1-12{
+        flex-direction: column-reverse;
+    }
+
+    .Banner-Portion{
+        padding: 100px 0 50px 0;
+    }
+
+    .Banner-Portion .banner-img svg{
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .Banner-Portion .banner-img img{
+        bottom: -11px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .Banner-Portion .grid-x1-6{
+        margin-bottom: 20px;
+    }
+}
+
 
 /* /==================== /RESPONSIVE WEB(MEDIA QUERY) ==================== */
