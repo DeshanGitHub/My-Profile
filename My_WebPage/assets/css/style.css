@@ -74,11 +74,23 @@
 }
 
 /* SMALL NAV */
-.Navbar-portion .small-nav
+.Navbar-portion .small-nav .menu-btn,
+.Navbar-portion .small-nav .mode-btn{
+    padding: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    color: var(--text-color-v2);
+    transition: all 0.3s linear;
+}
+
+.Navbar-portion .small-nav .menu-btn:hover,
+.Navbar-portion .small-nav .mode-btn:hover{
+    color: var(--theme-color);
+}
 
 .Navbar-portion .small-nav .small-drop-down {
     position: absolute;
-    right: 33px;
+    right: 52px;
     top: 65px;
     display: flex;
     align-items: center;
