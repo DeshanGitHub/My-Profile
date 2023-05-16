@@ -12,13 +12,13 @@
     --background-v1: #FBFBFF;
     --background-v2: #FFFFFF;
     --theme-color: #4070F4;
-    --white-color:#FFFFFF;
+    --white-color: #FFFFFF;
     --text-color-v1: #222222;
     --text-color-v2: #444444;
     --text-color-v3: #777777;
-    --shadow:   inset 0 1px 0.5px rgba(255, 255, 255, 0.08),
-                0 0.25px 0.4px rgba(0, 0, 0, 0.05),
-                0 3.4px 6px rgba(0, 0, 0, 0.1);
+    --shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.08),
+    0 0.25px 0.4px rgba(0, 0, 0, 0.05),
+    0 3.4px 6px rgba(0, 0, 0, 0.1);
     --corner-radius: 12px;
 
 }
@@ -78,7 +78,7 @@
 
 /* SMALL NAV */
 .Navbar-portion .small-nav .menu-btn,
-.Navbar-portion .small-nav .mode-btn{
+.Navbar-portion .small-nav .mode-btn {
     padding: 5px;
     margin-left: 5px;
     cursor: pointer;
@@ -87,7 +87,7 @@
 }
 
 .Navbar-portion .small-nav .menu-btn:hover,
-.Navbar-portion .small-nav .mode-btn:hover{
+.Navbar-portion .small-nav .mode-btn:hover {
     color: var(--theme-color);
 }
 
@@ -106,7 +106,7 @@
     border-radius: var(--corner-radius);
 }
 
-.Navbar-portion .small-nav .small-drop-down:after{
+.Navbar-portion .small-nav .small-drop-down:after {
     content: '';
     position: absolute;
     height: 15px;
@@ -118,11 +118,11 @@
     box-shadow: rgb(0 0 0.1%) -3px -3px 3px 0;
 }
 
-.Navbar-portion .small-nav .small-drop-down div li{
+.Navbar-portion .small-nav .small-drop-down div li {
     margin-bottom: 10px;
 }
 
-.Navbar-portion .small-nav .small-drop-down div li a{
+.Navbar-portion .small-nav .small-drop-down div li a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -131,34 +131,35 @@
 
 }
 
-.Navbar-portion .small-nav .small-drop-down div li a:hover span{
+.Navbar-portion .small-nav .small-drop-down div li a:hover span {
     color: var(--theme-color);
 }
 
-.Navbar-portion .small-nav .small-drop-down div li a span.material-icons-round{
+.Navbar-portion .small-nav .small-drop-down div li a span.material-icons-round {
     font-size: 21px;
     margin: 0;
     padding: 0;
 }
 
-.Navbar-portion .small-nav .small-drop-down div li a span{
+.Navbar-portion .small-nav .small-drop-down div li a span {
     transition: all 0.3s linear;
     font-size: 15px;
     color: var(--text-color-v2);
 }
+
 /* ==================== /NAVBAR PORTION ==================== */
 
 /* ====================  BANNER PORTION ==================== */
-.Banner-Portion{
+.Banner-Portion {
     padding: 220px 0 80px 0;
 }
 
-.Banner-Portion .grid-x1-6{
-    padding-left: 0!important;
-    padding-right: 0!important;
+.Banner-Portion .grid-x1-6 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
-.Banner-Portion .banner-info span{
+.Banner-Portion .banner-info span {
     position: relative;
     background: var(--theme-color);
     border-radius: var(--corner-radius);
@@ -174,18 +175,18 @@
 }
 
 @keyframes sayHello {
-    0%{
+    0% {
         transform: scale(0.0);
     }
-    50%{
+    50% {
         transform: scale(1.2);
     }
-    100%{
+    100% {
         transform: scale(1.0);
     }
 }
 
-.Banner-Portion .banner-info span:after{
+.Banner-Portion .banner-info span:after {
     content: '';
     position: absolute;
     height: 15px;
@@ -196,22 +197,22 @@
     background: var(--theme-color);
 }
 
-.Banner-Portion .banner-info p{
+.Banner-Portion .banner-info p {
     padding: 10px 0;
 }
 
-.Banner-Portion .banner-content li span{
+.Banner-Portion .banner-content li span {
     font-size: 15px;
     color: var(--text-color-v2);
     font-weight: 400;
     padding: 4px 0;
 }
 
-.Banner-Portion .banner-social-media{
+.Banner-Portion .banner-social-media {
     margin-top: 30px;
 }
 
-.Banner-Portion .banner-social-media a{
+.Banner-Portion .banner-social-media a {
     font-size: 20px;
     padding-right: 4px;
     color: var(--text-color-v2);
@@ -219,16 +220,16 @@
     transition: all 0.3s linear;
 }
 
-.Banner-Portion .banner-social-media a:hover{
+.Banner-Portion .banner-social-media a:hover {
     color: var(--theme-color);
 }
 
-.Banner-Portion .banner-img{
+.Banner-Portion .banner-img {
     height: 400px;
     position: relative;
 }
 
-.Banner-Portion .banner-img svg{
+.Banner-Portion .banner-img svg {
     height: 430px;
     width: 430px;
     position: absolute;
@@ -239,17 +240,102 @@
     z-index: 2;
 }
 
-.Banner-Portion .banner-img img{
+.Banner-Portion .banner-img img {
     position: absolute;
     width: 430px;
     z-index: 5;
     right: 3px;
     bottom: 3px;
 }
+
 /* ==================== /BANNER PORTION ==================== */
+/* ==================== /ABOUT PORTION ==================== */
+
+.About-portion .about-img{
+    height: 90%;
+    width: 100%;
+    position: relative;
+    border-radius: var(--corner-radius);
+}
+
+.About-portion .about-img:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: var(--corner-radius);
+}
+
+.About-portion .about-img img{
+    height: 100%;
+    width: 100%;
+    border-radius: var(--corner-radius);
+    object-fit: cover;
+}
+
+.About-portion .about-me .jam{
+    font-size: 20px;
+    color: var(--theme-color);
+    padding: 3px 5px 0 0;
+
+}
+
+.About-portion .about-me .achievements div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px 12px;
+    width: 160px;
+}
+
+.About-portion .about-me .achievements div span:nth-child(1){
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--theme-color);
+}
+
+.About-portion .about-me .achievements div span:nth-child(2){
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text-color-v2);
+    padding: 3px 0;
+    white-space: nowrap;
+}
+
+.About-portion .about-me .achievements div span:nth-child(3){
+    font-size: 13px;
+    color: var(--text-color-v3);
+}
+/* ==================== /ABOUT PORTION ==================== */
 
 /* ==================== COMMON CSS ==================== */
-h1{
+.portion-heading h2{
+    font-size: 28px;
+    color: var(--text-color-v1);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.portion-heading span{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color-v3);
+    display: block;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.flex-start{
+    display: flex;
+    align-items: flex-start;
+}
+
+h1 {
     font-size: 46px;
     font-weight: 600;
     color: var(--text-color-v1);
@@ -257,13 +343,13 @@ h1{
 
 }
 
-h4{
+h4 {
     font-size: 22px;
     font-weight: 500;
     color: var(--text-color-v1);
 }
 
-p{
+p {
     font-size: 16px;
     color: var(--text-color-v3);
     font-weight: 500;
@@ -278,7 +364,7 @@ a {
     text-decoration-color: transparent;
 }
 
-.btn{
+.btn {
     display: flex;
     align-items: center;
     padding: 8px 22px;
@@ -292,16 +378,28 @@ a {
     transition: all 0.3s linear;
 }
 
-.btn span{
+.btn a {
+    display: flex;
+    align-items: center;
+}
+
+.btn span,
+.btn a span {
     color: var(--white-color);
 }
 
-.btn span.material-icons-round{
+.btn span.material-icons-round,
+.btn a span.material-icons-round {
     font-size: 19px;
 }
 
-.btn:hover{
+.btn:hover {
     box-shadow: rgba(0, 0, 0, 0.2) 0 10px 20px 0;
+}
+
+.container:not(.Navbar-portion,.Banner-Portion){
+    padding: 80px 0;
+
 }
 
 .container {
@@ -311,6 +409,15 @@ a {
     margin-right: auto !important;
     margin-left: auto !important;
     background: var(--background-v1);
+}
+
+.grid-row {
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+
 }
 
 .center {
@@ -325,14 +432,50 @@ a {
 }
 
 .grid-x1-12,
-.grid-x1-9 {
+.grid-x1-9,
+.grid-x1-6,
+.grid-x1-5{
     padding-left: 12px !important;
     padding-right: 12px !important;
     min-height: 1px;
 }
 
+.grid-12{
+    width: 100%;
+}
+
+@media (min-width: 576px){
+    /*576px to 967px small screen*/
+    .grid-sm-11{
+        width: 91.666667%;
+    }
+}
+
+@media (min-width: 768px){
+    /*768px to 967px medium screen*/
+    .grid-md-6{
+        width: 50%;
+    }
+}
+
+@media (min-width: 967px) {
+    /*967px to 1200px large screen*/
+    .grid-1g-6 {
+        width: 50%;
+    }
+
+    .grid-1g-11{
+        width: 91.666667%;
+    }
+
+    .grid-1g-6{
+        width: 50%;
+
+    }
+}
+
 @media (min-width: 1200px) {
-    /* >1200px*/
+    /* >1200px extra large screen*/
     .grid-x1-12 {
         width: 100%;
     }
@@ -341,16 +484,15 @@ a {
         width: 70%;
     }
 
-    .grid-x1-6{
+    .grid-x1-6 {
         width: 50%;
+    }
+
+    .grid-x1-5{
+        width: 41.666667%;
     }
 }
 
-@media (min-width: 967px) {
-    .grid-1g-6{
-        width: 50%;
-    }
-}
 
 /* /==================== /COMMON CSS ==================== */
 
@@ -369,106 +511,112 @@ a {
     }
 }
 
-@media screen and (max-width: 967px) and (min-width: 768px){
+@media screen and (max-width: 967px) and (min-width: 768px) {
     /*967px to 768px*/
-    .Banner-Portion .grid-x1-12{
+    .Banner-Portion .grid-x1-12 {
         flex-direction: column-reverse;
     }
 
-    .Banner-Portion .banner-img svg{
+    .Banner-Portion .banner-img svg {
         top: 0;
         left: 50%;
         transform: translateX(-50%);
     }
 
-    .Banner-Portion .banner-img img{
+    .Banner-Portion .banner-img img {
         bottom: -11px;
         left: 50%;
         transform: translateX(-50%);
     }
 
-    .Banner-Portion .grid-x1-6{
+    .Banner-Portion .grid-x1-6 {
         margin-bottom: 20px;
     }
 }
 
-@media screen and (max-width: 767px) and (min-width: 468px){
+@media screen and (max-width: 767px) and (min-width: 468px) {
     /*767px to 468px*/
-    .Banner-Portion .grid-x1-12{
+    .Banner-Portion .grid-x1-12 {
         flex-direction: column-reverse;
     }
 
-    .Banner-Portion{
+    .Banner-Portion {
         padding: 150px 0 50px 0;
     }
 
-    .Banner-Portion .banner-img svg{
+    .Banner-Portion .banner-img svg {
         top: 0;
         left: 50%;
         transform: translateX(-50%);
     }
 
-    .Banner-Portion .banner-img img{
+    .Banner-Portion .banner-img img {
         bottom: -11px;
         left: 50%;
         transform: translateX(-50%);
     }
 
-    .Banner-Portion .grid-x1-6{
+    .Banner-Portion .grid-x1-6,
+    .About-portion .grid-1g-6{
         margin-bottom: 20px;
+    }
+
+    .About-portion .grid-1g-6{
+        margin-left: auto;!important;
+        margin-right: auto;!important;
     }
 }
 
-@media screen and (max-width: 467px) and (min-width: 368px){
+@media screen and (max-width: 467px) and (min-width: 368px) {
     /*467px to 368px*/
-    .Banner-Portion .grid-x1-12{
+    .Banner-Portion .grid-x1-12 {
         flex-direction: column-reverse;
     }
 
-    .Banner-Portion{
+    .Banner-Portion {
         padding: 120px 0 50px 0;
     }
 
-    .Banner-Portion .banner-img svg{
+    .Banner-Portion .banner-img svg {
         top: 0;
         left: 50%;
         transform: translateX(-50%);
     }
 
-    .Banner-Portion .banner-img img{
+    .Banner-Portion .banner-img img {
         bottom: -11px;
         left: 50%;
         transform: translateX(-50%);
     }
 
-    .Banner-Portion .grid-x1-6{
+    .Banner-Portion .grid-x1-6 {
         margin-bottom: 20px;
     }
 }
 
-@media screen and (max-width: 367px) and (min-width: 0px){
+@media screen and (max-width: 367px) and (min-width: 0px) {
     /*467px to 368px*/
-    .Banner-Portion .grid-x1-12{
+    .Banner-Portion .grid-x1-12 {
         flex-direction: column-reverse;
     }
 
-    .Banner-Portion{
+    .Banner-Portion {
         padding: 100px 0 50px 0;
     }
 
-    .Banner-Portion .banner-img svg{
+    .Banner-Portion .banner-img svg {
         top: 0;
         left: 50%;
         transform: translateX(-50%);
     }
 
-    .Banner-Portion .banner-img img{
+    .Banner-Portion .banner-img img {
         bottom: -11px;
         left: 50%;
         transform: translateX(-50%);
     }
 
-    .Banner-Portion .grid-x1-6{
+    .Banner-Portion .grid-x1-6 {
         margin-bottom: 20px;
     }
 }
