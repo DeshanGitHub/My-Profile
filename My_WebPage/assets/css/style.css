@@ -12,6 +12,7 @@
     --background-v1: #FBFBFF;
     --background-v2: #FFFFFF;
     --theme-color: #4070F4;
+    --background-v4: #D8D8D8;
     --white-color: #FFFFFF;
     --text-color-v1: #222222;
     --text-color-v2: #444444;
@@ -350,6 +351,54 @@
     cursor: pointer;
 }
 /* ==================== /SERVICE PORTION ==================== */
+/* ==================== SKILL PORTION ==================== */
+
+.Skill-portion .skill-card{
+    border-radius: var(--corner-radius);
+    box-shadow: var(--shadow);
+    background: var(--background-v2);
+    padding: 25px 35px;
+}
+
+.Skill-portion .skill-card h5{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.Skill-portion .skill-card h5 span{
+    color: var(--theme-color);
+    padding-right: 5px;
+}
+
+.Skill-portion .skill-card .skill-set{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.Skill-portion .skill-card .skill-set .skill-title{
+    display: flex;
+    align-items: center;
+}
+
+.Skill-portion .skill-card .skill-set .skill-title span.material-icons-round{
+    color: var(--theme-color);
+    font-size: 19px;
+    margin-right: 6px;
+}
+
+.Skill-portion .skill-card .skill-set .skill-title span{
+    color: var(--text-color-v3);
+    font-weight: 500;
+}
+
+.Skill-portion .skill-card .progress-dot span{
+    font-size: 21px;
+    color: var(--background-v4);
+}
+/* ==================== /SKILL PORTION ==================== */
 
 /* ==================== COMMON CSS ==================== */
 h5{
