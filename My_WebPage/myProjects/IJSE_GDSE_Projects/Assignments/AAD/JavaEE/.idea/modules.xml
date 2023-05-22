@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/Back_End_POS/Back_End_POS.iml" filepath="$PROJECT_DIR$/Back_End_POS/Back_End_POS.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Front_End_POS/Front_End_POS.iml" filepath="$PROJECT_DIR$/Front_End_POS/Front_End_POS.iml" />
-    </modules>
-  </component>
-</project>
