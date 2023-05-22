@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Mouse Move_Exercise</title>
+
+    <style>
+        .d1 {
+            height: 50px;
+            width: 50px;
+            background-color: red;
+            border-radius: 360px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body id="b1">
+    <h1 id="h1_1">Test Mouse Move</h1>
+    <p>Mouse is at coordinates: <span></span>.</p>
+
+    <div class="d1" id="d1"></div>
+
+    <script src="assets/js/jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).mousemove(function (event) {
+            $("span").text(event.pageX + ", " + event.pageY);
+
+            $("#d1").css({ left: event.pageX, top: event.pageY });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment_02</title>
+    <link href="assets/css/normalize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Farro:wght@500&family=Hurricane&family=KoHo:wght@300;400&family=Oswald&family=Playfair+Display&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Slab:wght@300&display=swap"
+          rel="stylesheet">
+    <link href="assets/css/fonts/css/all.css" rel="stylesheet">
+
+    <style>
+        header {
+            /*border: 2px solid red;*/
+            position: relative;
+            /*===============ADD SHADOW===============*/
+            box-shadow: -2px 6px 9px -4px #917a7a;
+            /*===============/ADD SHADOW===============*/
+        }
+
+        header > img {
+            /*===============CENTER IMAGE===============*/
+            position: relative;
+            top: 1px;
+            left: 7px;
+            /*===============/CENTER IMAGE===============*/
+            width: 200px;
+        }
+
+        header > ul {
+            position: absolute;
+            right: 30px;
+            bottom: 0;
+            font-size: 20px;
+            list-style: none;
+            font-family: 'Roboto Slab', serif;
+
+
+        }
+
+        header > ul > li {
+            padding: 0 10px 0 10px;
+            display: inline-block;
+        }
+
+        header > ul > li:hover {
+            cursor: pointer;
+            color: red;
+        }
+
+        /*===============MAIN CONTENT===============*/
+
+        main {
+            /*border: 2px solid;*/
+            position: relative;
+        }
+
+        main > nav {
+            width: 200px;
+            background: rebeccapurple;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+        }
+
+        main > section {
+            margin-left: 200px;
+            padding: 10px;
+            min-height: 1000px;
+        }
+
+        main > nav > ul {
+            list-style: none;
+            color: white;
+            font-size: large;
+            font-family: 'KoHo', sans-serif;
+            margin-left: 3px;
+            margin-top: 28px;
+            margin-bottom: 10px;
+        }
+
+        main > nav > ul > li {
+            padding-bottom: 20px;
+        }
+
+        main > nav > ul > li > a {
+            text-decoration: none;
+            color: white;
+            margin-left: 10px;
+        }
+
+        main > nav > ul > li > a:hover {
+            cursor: pointer;
+            color: red;
+            border-bottom: 2px solid red;
+        }
+
+        /*MAIN SECTION IMAGES*/
+        main > section > section {
+            height: 300px;
+            position: relative;
+        }
+
+        main > section > section > div {
+            position: absolute;
+            height: 100%;
+            width: calc(100% / 3);
+        }
+
+        main > section > section > div:nth-child(1) {
+            left: 0;
+            background-image: url("assets/images/background_image.jpg");
+            background-size: cover;
+        }
+
+        main > section > section > div:nth-child(2) {
+            left: calc(100% / 3);
+            border-left: 5px solid white;
+            background-image: url("assets/images/background_image_2.jpg");
+            background-size: cover;
+        }
+
+        main > section > section > div:nth-child(3) {
+            left: calc((100% / 3) * 2);
+            border-left: 5px solid white;
+            background-image: url("assets/images/background_image_3.jpg");
+            background-size: cover;
+        }
+
+        /*/MAIN SECTION IMAGES*/
+
+        /*===============/MAIN CONTENT===============*/
+
+        /*===============FOOTER CONTENT===============*/
+        body > footer {
+            height: 60px;
+            background-color: #585757;
+        }
+
+        body > footer > h3 {
+            margin-top: 0;
+            margin-bottom: 0;
+            text-align: center;
+            padding: 20px;
+            color: white;
+            font-weight: bold;
+        }
+
+        /*===============/FOOTER CONTENT===============*/
+    </style>
+</head>
+<body>
+<header>
+    <img src="assets/images/ijse.png">
+    <ul>
+        <li>Home</li>
+        <li>Service</li>
+        <li>Contacts</li>
+        <li>About Us</li>
+    </ul>
+</header>
+<main>
+    <nav>
+        <ul>
+            <li><i class="fa-solid fa-house-chimney"></i><a href="case1.html">Home</a></li>
+            <li><i class="fa-sharp fa-solid fa-globe"></i><a href="index.html">Service</a></li>
+            <li><i class="fa-solid fa-address-book"></i><a href="index2.html">Contacts</a></li>
+            <li><i class="fa-solid fa-circle-info"></i><a href="case1.html">About Us</a></li>
+        </ul>
+    </nav>
+    <section>
+        <section>
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+
+        <p>Accusamus asperiores debitis, id nesciunt nulla porro quod veniam. Exercitationem incidunt iure maiores
+            mollitia nihil, obcaecati. Aut exercitationem iure nesciunt odit officia officiis quam qui, rem sint ut!
+            Cum, neque?</p>
+        <p>Culpa ea hic laudantium, magnam non obcaecati quaerat rem sequi. Aperiam at cum deleniti ea eos
+            necessitatibus quis tempora, voluptatibus. Aut cumque eius et molestias necessitatibus omnis quam similique
+            soluta.</p>
+        <p>Accusamus asperiores debitis, id nesciunt nulla porro quod veniam. Exercitationem incidunt iure maiores
+            mollitia nihil, obcaecati. Aut exercitationem iure nesciunt odit officia officiis quam qui, rem sint ut!
+            Cum, neque?</p>
+        <p>Culpa ea hic laudantium, magnam non obcaecati quaerat rem sequi. Aperiam at cum deleniti ea eos
+            necessitatibus quis tempora, voluptatibus. Aut cumque eius et molestias necessitatibus omnis quam similique
+            soluta.</p>
+        <p>Accusamus asperiores debitis, id nesciunt nulla porro quod veniam. Exercitationem incidunt iure maiores
+            mollitia nihil, obcaecati. Aut exercitationem iure nesciunt odit officia officiis quam qui, rem sint ut!
+            Cum, neque?</p>
+        <p>Culpa ea hic laudantium, magnam non obcaecati quaerat rem sequi. Aperiam at cum deleniti ea eos
+            necessitatibus quis tempora, voluptatibus. Aut cumque eius et molestias necessitatibus omnis quam similique
+            soluta.</p>
+    </section>
+</main>
+<footer>
+    <h3><small>Developed By DESH 2022</small></h3>
+</footer>
+</body>
+</html>

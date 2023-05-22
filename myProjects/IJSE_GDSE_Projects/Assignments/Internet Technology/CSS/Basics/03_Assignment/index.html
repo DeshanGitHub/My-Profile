@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment_03</title>
+    <link href="assets/css/normalize.css" rel="stylesheet">
+
+    <style>
+        /*=================CENTER CIRCLE BORDERS==================*/
+        body > div:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            border: 10px solid gray;
+            border-radius: 100%;
+            position: fixed;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 2;
+        }
+
+        body > div:nth-child(1) > div {
+            width: 90%;
+            height: 90%;
+            border: 10px solid red;
+            border-radius: 100%;
+            position: relative;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 2;
+        }
+
+        /*=================/CENTER CIRCLE BORDERS==================*/
+
+        /*=================OTHER FIXED CIRCLES======================*/
+        body > section {
+            height: 100vh;
+            position: relative;
+            /*border: 2px solid green;*/
+        }
+
+        body > section:nth-child(2) > div {
+            width: 190px;
+            height: 190px;
+            background: purple;
+            border-radius: 100%;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+        }
+
+        h2 {
+            position: relative;
+            top: 35%;
+            color: white;
+        }
+
+        body > section:nth-child(3) > div {
+            width: 190px;
+            height: 190px;
+            background: lightskyblue;
+            border-radius: 100%;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+        }
+
+        body > section:nth-child(4) > div {
+            width: 190px;
+            height: 190px;
+            background: darkorange;
+            border-radius: 100%;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+        }
+
+        body > section:nth-child(4) > div > h2 {
+            top: 20%;
+        }
+
+        /*=================/OTHER FIXED CIRCLES======================*/
+
+    </style>
+</head>
+<body>
+
+<div>
+    <div></div>
+</div>
+
+<section>
+    <div>
+        <h2>Hello</h2>
+    </div>
+</section>
+
+<section>
+    <div>
+        <h2>Welcome To</h2>
+    </div>
+</section>
+
+<section>
+    <div>
+        <h2>Institute Of Software Engineering</h2>
+    </div>
+</section>
+</body>
+</html>

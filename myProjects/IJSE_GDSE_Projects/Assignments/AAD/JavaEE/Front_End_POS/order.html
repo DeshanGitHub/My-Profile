@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <title>POS System - Order Form</title>
+
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6a6b6e;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="customer.html">
+                <img alt="Logo" height="48.1875" src="assets/img/posLogo.png" width="184.3125">
+            </a>
+            <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler"
+                    data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="customer.html">Customer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a aria-current="page" class="nav-link" href="item.html">Item</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="order.html">Order</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+<section class="container-fluid">
+    <div class="row align-items-center">
+        <!--INVOICE DETAILS FORM-->
+        <div class="col-12 col-lg-4">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header justify-content-center bg-primary">
+                        <h4 class="modal-title fw-bold">Invoice Details</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label fw-bold" for="cusCmb">Customer ID:</label>
+                                <select class="form-select" id="cusCmb">
+
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label class="form-label fw-bold" for="txtOId"> Order ID:</label>
+                                <input class="form-control" id="txtOId" placeholder="Order ID" type="text">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <label class="form-label fw-bold" for="txtCusNameInvoice">Customer Name:</label>
+                                <input class="form-control" id="txtCusNameInvoice" placeholder="Customer Name" readonly
+                                       type="text">
+                            </div>
+                            <div class="col">
+                                <label class="form-label fw-bold" for="Date">Date:</label>
+                                <input class="form-control" id="Date" placeholder="Date" readonly type="text">
+                            </div>
+                        </div>
+                        <div class="row mt-3 mb-3">
+                            <div class="col">
+                                <label class="form-label fw-bold" for="txtCusAddressInvoice">Address:</label>
+                                <input class="form-control" id="txtCusAddressInvoice" placeholder="Address" readonly
+                                       type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/INVOICE DETAILS FORM-->
+
+        <!--ITEM SELECT FORM-->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header justify-content-center bg-primary">
+                        <h4 class="modal-title fw-bold">Item Select</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label fw-bold" for="itemCmb">Item:</label>
+                                <select class="form-select" id="itemCmb">
+
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label class="form-label fw-bold" for="txtItemName">Item Name:</label>
+                                <input class="form-control" id="txtItemName" placeholder="Item Name" readonly
+                                       type="text">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+
+                            <div class="col">
+                                <label class="form-label fw-bold" for="txtQtyOnHand">Qty On Hand:</label>
+                                <input class="form-control" id="txtQtyOnHand" placeholder="Qty On Hand" readonly
+                                       type="text">
+                            </div>
+                            <div class="col">
+                                <label class="form-label fw-bold" for="txtPrice">Price:</label>
+                                <input class="form-control" id="txtPrice" placeholder="Unit Price" readonly type="text">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <label class="form-label fw-bold" for="txtOrderQty">Order Quantity:</label>
+                                <input class="form-control" id="txtOrderQty" placeholder="Quantity" type="number">
+                            </div>
+                        </div>
+                        <div class="row mt-3 mb-1 justify-content-center container col-xl-6">
+                            <button class="btn btn-success me-md-2" id="btnAddToCart" type="button">Add To Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ITEM SELECT FORM-->
+
+        <!--PURCHASE FORM-->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row mt-3">
+                            <div class="col">
+                                <p class="h2 d-inline">
+                                    Total :
+                                </p>
+                                <p class="h2 d-inline" id="pTotalId">
+                                    0.0/=
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <p class="h2 d-inline">
+                                    Balance :
+                                </p>
+                                <p class="h2 d-inline" id="pBalanceId">
+                                    0.0/=
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+
+                            <div class="col">
+                                <label class="form-label fw-bold" for="txtCashId">Cash:</label>
+                                <input class="form-control" id="txtCashId" placeholder="Cash" type="text">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+
+                            <div class="col">
+                                <label class="form-label fw-bold" for="txtBalanceId">Balance:</label>
+                                <input class="form-control" id="txtBalanceId" placeholder="Balance" readonly
+                                       type="text">
+                            </div>
+                        </div>
+                        <div class="row mt-3 mb-1 justify-content-center container col-xl-6">
+                            <button class="btn btn-info" id="btnPurchaseId" type="button">Purchase</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/PURCHASE FORM-->
+
+    </div>
+    <div class="row">
+        <div class="table-responsive" style="height: 30vh;">
+            <table class="table table-primary table-striped" id="tblCartTableId">
+                <thead>
+                <tr>
+                    <th>Item Code</th>
+                    <th>Item Name</th>
+                    <th>Price</th>
+                    <th>QTY</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody id="tblCartTableBody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</section>
+
+<script src="assets/jQuery/jquery-3.6.0.min.js"></script>
+<script>
+    let baseUrl = "http://localhost:8080/posBackEnd/"
+
+    /*FIND ITEM COMBO BOX VALUE*/
+    $('#itemCmb').on('change', function (e) {
+        var valueSelected = this.value;
+        if (valueSelected !== "Select ID") {
+
+            /*GET THE COMBO BOX SELECTED VALUE*/
+            var comboBoxSelectedValue = $("#itemCmb :selected").text();
+
+            setItemNamePriceQty(comboBoxSelectedValue);
+
+        } else {
+            $("#txtItemName").val("");
+            $("#txtPrice").val("");
+            $("#txtQtyOnHand").val("");
+        }
+    });
+
+    /*FIND CUSTOMER COMBO BOX VALUE*/
+    $('#cusCmb').on('change', function (e) {
+        var valueSelected = this.value;
+        if (valueSelected !== "Select ID") {
+
+            /*GET THE COMBO BOX SELECTED VALUE*/
+            var comboBoxSelectedValue = $("#cusCmb :selected").text();
+
+            setCustomerNameAndAddress(comboBoxSelectedValue);
+
+        } else {
+            $("#txtCusNameInvoice").val("");
+            $("#txtCusAddressInvoice").val("");
+        }
+    });
+
+    loadItemComboBox();
+    loadCustomerIdComboBox();
+    setDateToTextField();
+
+    /*CLEAR TEXT FIELD AND CART TABLE*/
+    function clearTextFieldsAndCartTable() {
+        $("#txtCusNameInvoice").val("");
+        $("#txtCusAddressInvoice").val("");
+        $("#txtOId").val("");
+        $("#txtItemName").val("");
+        $("#txtPrice").val("");
+        $("#txtQtyOnHand").val("");
+        $("#txtOrderQty").val("");
+        $("#txtBalanceId").val("");
+        $("#txtCashId").val("");
+
+        $("#tblCartTableBody").empty();
+    }
+
+    /*FIND CART TABLE IS EMPTY*/
+    function isCartTableEmpty() {
+        var myRows = $('#tblCartTableBody').find('tr');
+
+        if (myRows.length === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /*GET THE PURCHASE ORDER BUTTON CLICKED TIME*/
+    function getPurchaseOrderBtnClickedTime() {
+        var dt = new Date();
+        var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+        return time;
+    }
+
+    /*GET ORDERED ITEM DETAILS*/
+    function getOrderedItemDetails() {
+        var myRows = $('#tblCartTableBody').find('tr');
+        var array = [];
+
+        for (let i = 0; i < myRows.length; i++) {
+            let itemCode = $("#tblCartTableBody").children().eq(i).children(":eq(0)").text();
+            let itemQty = $("#tblCartTableBody").children().eq(i).children(":eq(3)").text();
+            let itemCost = $("#tblCartTableBody").children().eq(i).children(":eq(4)").text();
+            array.push({code: itemCode, qty: itemQty, cost: itemCost})
+        }
+        return array;
+    }
+
+    /*PURCHASE BUTTON FUNCTION*/
+    $("#btnPurchaseId").click(function () {
+        let customerName = $("#txtCusNameInvoice").val();
+        let balance = $("#txtBalanceId").val();
+        let orderId = $("#txtOId").val();
+        let customerId = $("#cusCmb :selected").text();
+        let orderDate = $("#Date").val();
+        let orderTime = getPurchaseOrderBtnClickedTime();
+        let orderCost = Number($("#pTotalId").text().replace("/=", ""));
+        let orderDetails = getOrderedItemDetails();
+
+        if (customerName !== "") {
+            if (orderId !== "") {
+                if (isCartTableEmpty()) {
+                    alert("Please Add Items to Cart!!");
+                } else {
+                    if (balance !== "") {
+                        if (Number(balance) >= 0) {
+                            let ob = {
+                                oId: orderId,
+                                cId: customerId,
+                                oDate: orderDate,
+                                oTime: orderTime,
+                                oCost: orderCost,
+                                oDetails: orderDetails
+                            }
+
+                            /*SEND REQUEST*/
+                            $.ajax({
+                                url: baseUrl + "purchase",
+                                method: "post",
+                                dataType: "json",
+                                data: JSON.stringify(ob),
+                                contentType: "application/json",
+                                success: function (resp) {
+                                    alert(resp.message);
+                                    clearTextFieldsAndCartTable();
+                                },
+                                error: function (error) {
+                                    alert(JSON.parse(error.responseText).message);
+                                }
+                            });
+
+                        } else {
+                            alert("Payment Is Not Enough To Complete The Order, Please Check!!");
+                        }
+                    } else {
+                        alert("Please Give Payment Details!!");
+                    }
+                }
+            } else {
+                alert("Please Enter Order ID!!");
+            }
+        } else {
+            alert("Please Select a Customer!!");
+        }
+    })
+
+
+    /*LISTENER FOR FIND BALANCE*/
+    $("#txtCashId").on("input", function () {
+
+        var myRows = $('#tblCartTableBody').find('tr');
+
+        if (myRows.length === 0) {
+            $("#txtBalanceId").text("0.00");
+        } else {
+            let cartTableTotalPrice = 0;
+
+            for (var i = 0; i < myRows.length; i++) {
+                let cartTableEachItemTotal = $(myRows[i]).find('td:eq(4)').html();
+
+                cartTableTotalPrice = Number(cartTableTotalPrice) + Number(cartTableEachItemTotal);
+                $("#txtBalanceId").val(Number($(this).val()) - cartTableTotalPrice);
+                $("#pBalanceId").text(Number($(this).val()) - cartTableTotalPrice + " /=");
+            }
+        }
+    });
+
+    /*SET TOTAL PRICE FOR LABEL*/
+    function setTotalPriceForLabel() {
+        var myRows = $('#tblCartTableBody').find('tr');
+
+        if (myRows.length === 0) {
+            $("#pTotalId").text("0.00 /=");
+        } else {
+            let cartTableTotalPrice = 0;
+
+            for (var i = 0; i < myRows.length; i++) {
+                let cartTableEachItemTotal = $(myRows[i]).find('td:eq(4)').html();
+
+                cartTableTotalPrice = Number(cartTableTotalPrice) + Number(cartTableEachItemTotal);
+                $("#pTotalId").text(cartTableTotalPrice + " /=");
+            }
+        }
+    }
+
+    /*CHECK ORDERED QTY MORE THAN QTY ON HAND*/
+    function isOrderedQtyMoreThanQtyOnHand() {
+        let selectedItemId = $("#itemCmb :selected").text();
+        let orderedQty = $("#txtOrderQty").val();
+        let qtyOnHand = $("#txtQtyOnHand").val();
+
+        let booleanAnswer;
+
+        var myRows = $('#tblCartTableBody').find('tr');
+
+        if (myRows.length === 0) {
+            if (Number(orderedQty) > Number(qtyOnHand)) {
+                booleanAnswer = true;
+            } else {
+                booleanAnswer = false;
+            }
+        } else {
+            for (var i = 0; i < myRows.length; i++) {
+                var tableItemId = $(myRows[i]).find('td:eq(0)').html();
+                let tableItemQty = $(myRows[i]).find('td:eq(3)').html();
+
+                if (tableItemId === selectedItemId) {
+                    /*alert("ID same" + $(myRows[i]).children(":eq(0)").text());*/
+                    orderedQty = Number(tableItemQty) + Number(orderedQty);
+                    if (Number(orderedQty) > Number(qtyOnHand)) {
+                        booleanAnswer = true;
+                    } else {
+                        booleanAnswer = false;
+                    }
+                    break;
+                }
+            }
+        }
+
+        return booleanAnswer;
+    }
+
+    /*ADD TO CART BUTTON FUNCTION*/
+    $("#btnAddToCart").click(function () {
+
+        if (isOrderedQtyMoreThanQtyOnHand()) {
+            alert("Ordered Quantity is more than Quantity On Hand, Please Check!!");
+        } else {
+            loadCartTable();
+            setTotalPriceForLabel();
+        }
+
+    });
+
+    /*LOAD ORDER PAGE TABLE*/
+    function loadCartTable() {
+        let selectedItemId = $("#itemCmb :selected").text();
+        let itemName = $("#txtItemName").val();
+        let itemPrice = $("#txtPrice").val();
+        let orderedQty = $("#txtOrderQty").val();
+
+        if (itemName !== "") {
+
+            if (orderedQty > 0) {
+
+                var myRows = $('#tblCartTableBody').find('tr');
+
+                if (myRows.length === 0) {
+                    var row = '<tr><td>' + selectedItemId + '</td>' + '<td>' + itemName + '</td>' + '<td>' + itemPrice + '</td>' + '<td>' + orderedQty + '</td>' + '<td>' + (itemPrice * orderedQty) + '</td>' + '</tr>';
+                    $("#tblCartTableBody").append(row);
+                    console.log("first else");
+                } else {
+                    let isExistsCartTableId = false;
+
+                    for (var i = 0; i < myRows.length; i++) {
+                        var tableItemId = $(myRows[i]).find('td:eq(0)').html();
+                        let tableItemQty = $(myRows[i]).find('td:eq(3)').html();
+
+                        if (tableItemId === selectedItemId) {
+                            /*alert("ID same" + $(myRows[i]).children(":eq(0)").text());*/
+                            $(myRows[i]).children(":eq(3)").empty();
+                            $(myRows[i]).children(":eq(3)").append(Number(tableItemQty) + Number(orderedQty));
+                            $(myRows[i]).children(":eq(4)").empty();
+                            $(myRows[i]).children(":eq(4)").append(itemPrice * (Number(tableItemQty) + Number(orderedQty)));
+                            isExistsCartTableId = true;
+                            break;
+                        }
+                    }
+
+                    if (!isExistsCartTableId) {
+                        var row = '<tr><td>' + selectedItemId + '</td>' + '<td>' + itemName + '</td>' + '<td>' + itemPrice + '</td>' + '<td>' + orderedQty + '</td>' + '<td>' + (itemPrice * orderedQty) + '</td>' + '</tr>';
+                        $("#tblCartTableBody").append(row);
+                        console.log("second one");
+                    }
+                }
+
+            } else {
+                alert("Please Enter Proper Value For Order Quantity!!")
+            }
+
+        } else {
+            alert("Please Select An Item ID!!");
+        }
+    }
+
+    /*SET ITEM NAME, PRICE AND QTY FOR TEXT FIELDS*/
+    function setItemNamePriceQty(valueSelected) {
+        /* alert(valueSelected);*/
+        $.ajax({
+            url: baseUrl + "item",
+            dataType: "json",
+            success: function (resp) {
+                /*console.log(resp);*/
+                for (let item of resp.data) {
+                    if (item.itmID === valueSelected) {
+                        /*alert(valueSelected);*/
+                        $("#txtItemName").val(item.itmName);
+                        $("#txtPrice").val(item.itmPrice);
+                        $("#txtQtyOnHand").val(item.itmQTY);
+                    }
+                }
+            }
+        })
+    }
+
+    /*SET VALUES FOR ITEM COMBO BOX*/
+    function loadItemComboBox() {
+        $.ajax({
+            url: baseUrl + "item",
+            dataType: "json",
+            success: function (resp) {
+                /*SET EMPTY VALUE FOR CUSTOMER COMBO BOX*/
+                var cmbEmptyRow = '<option selected>' + "Select ID" + '</option>';
+                $("#itemCmb").append(cmbEmptyRow);
+
+                let rowValue = 1;
+                for (let item of resp.data) {
+
+                    var cmbRow = '<option value="' + (rowValue++) + '">' + item.itmID + '</option>';
+                    $("#itemCmb").append(cmbRow);
+
+                }
+            }
+        })
+    }
+
+    /*SET CUSTOMER NAME AND ADDRESS FOR TEXT FIELDS*/
+    function setCustomerNameAndAddress(valueSelected) {
+        /* alert(valueSelected);*/
+        $.ajax({
+            url: baseUrl + "customer",
+            dataType: "json",
+            success: function (resp) {
+                for (let cus of resp.data) {
+                    if (cus.cId === valueSelected) {
+                        /*alert(valueSelected);*/
+                        $("#txtCusNameInvoice").val(cus.cName);
+                        $("#txtCusAddressInvoice").val(cus.cAddress);
+                    }
+                }
+            }
+        })
+    }
+
+    /*SET CUSTOMER ID TO COMBO BOX*/
+    function loadCustomerIdComboBox() {
+        $.ajax({
+            url: baseUrl + "customer",
+            dataType: "json",
+            success: function (resp) {
+                console.log(resp);
+
+                /*SET EMPTY VALUE FOR CUSTOMER COMBO BOX*/
+                var cmbEmptyRow = '<option selected>' + "Select ID" + '</option>';
+                $("#cusCmb").append(cmbEmptyRow);
+
+                let rowValue = 1;
+                for (let cus of resp.data) {
+
+                    var cmbRow = '<option value="' + (rowValue++) + '">' + cus.cId + '</option>';
+                    $("#cusCmb").append(cmbRow);
+
+                }
+            }
+        })
+    }
+
+    /*SET DATE TO TEXT FIELD*/
+    function setDateToTextField() {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+
+        today = yyyy + '-' + mm + '-' + dd;
+        document.write(today);
+
+        $("#Date").val(today);
+    }
+
+
+</script>
+
+</body>

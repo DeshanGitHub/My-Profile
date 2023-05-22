@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case_02</title>
+    <link rel="stylesheet" href="assets/normalize.css">
+
+    <style>
+
+        body>div{
+            width: 10px;
+            height: 10px;
+            border: 3px solid #5c2cff;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            border-radius: 100%;
+
+            animation-name: waterDrop;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        @keyframes waterDrop {
+            from{
+                width: 20px;
+                height: 20px;
+            }
+            to{
+                width: 200px;
+                height: 200px;
+                border: 10px solid #e0e0ff;
+                opacity: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div></div>
+
+</body>
+</html>
