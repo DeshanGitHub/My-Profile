@@ -487,6 +487,61 @@
 }
 /* ==================== /CONTACT PORTION ==================== */
 
+/* ==================== FOOTER PORTION ==================== */
+.Footer-Portion .grid-x1-12{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Footer-Portion{
+    padding: 25px 0;
+}
+
+.Footer-Portion .footer-logo span{
+    display: flex;
+    align-items: center;
+}
+
+.Footer-Portion .footer-logo span span{
+    color: var(--theme-color);
+    font-weight: 500;
+    font-size: 21px;
+
+}
+
+.Footer-Portion .footer-logo span span:last-child{
+    color: var(--text-color-v1);
+}
+
+.Footer-Portion .footer-social-media{
+    margin: 10px 0;
+}
+
+.Footer-Portion .footer-social-media a span{
+    padding: 0 4px;
+    font-size: 20px;
+    color: var(--text-color-v2);
+    transition: all 0.3s linear;
+}
+
+.Footer-Portion .footer-social-media a:hover span{
+    color: var(--theme-color);
+}
+
+.Footer-Portion .footer-copyright p{
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-color-v3);
+    text-align: center;
+}
+
+.Footer-Portion .footer-copyright p a{
+    color: var(--theme-color);
+}
+/* ==================== /FOOTER PORTION ==================== */
+
 /* ==================== COMMON CSS ==================== */
 h5{
     font-size: 20px;
@@ -580,7 +635,7 @@ a {
     box-shadow: rgba(0, 0, 0, 0.2) 0 10px 20px 0;
 }
 
-.container:not(.Navbar-portion,.Banner-Portion){
+.container:not(.Navbar-portion,.Banner-Portion,.Footer-Portion){
     padding: 80px 0;
 
 }
