@@ -434,6 +434,59 @@
 }
 /* ==================== /WORK PORTION ==================== */
 
+/* ==================== CONTACT PORTION ==================== */
+.Contact-portion .contact-card{
+    border-radius: var(--corner-radius);
+    background: var(--background-v2);
+    box-shadow: var(--shadow);
+    padding: 25px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 32px;
+}
+
+.Contact-portion .contact-card .material-icons-outlined{
+    color: var(--theme-color);
+    font-size: 36px;
+    margin-right: 16px;
+}
+
+.Contact-portion .contact-card div span{
+    font-size: 16px;
+    color: var(--text-color-v3);
+}
+
+.Contact-portion .contact-form input,
+.Contact-portion .contact-form textarea{
+    width: 100%;
+    height: 48px;
+    outline: none;
+    border: none;
+    padding: 0 16px;
+    color: var(--text-color-v2);
+    margin-bottom: 18px;
+    background: var(--background-v2);
+    box-shadow: var(--shadow);
+    border-radius: var(--corner-radius);
+    font-size: 17px;
+}
+
+.Contact-portion .contact-form textarea{
+    height: 100px;
+    padding: 10px 16px;
+}
+
+.Contact-portion .contact-form input:focus,
+.Contact-portion .contact-form textarea:focus{
+    border: 1px solid var(--border-color);
+}
+
+.Contact-portion .contact-form .btn{
+    margin-top: 18px!important;
+}
+/* ==================== /CONTACT PORTION ==================== */
+
 /* ==================== COMMON CSS ==================== */
 h5{
     font-size: 20px;
@@ -514,6 +567,7 @@ a {
 
 .btn span,
 .btn a span {
+    font-size: 17px;
     color: var(--white-color);
 }
 
@@ -707,10 +761,16 @@ a {
         transform: translateX(-50%);
     }
 
+    .Contact-portion .grid-x1-12{
+        flex-direction: column;
+    }
+
     .Banner-Portion .grid-x1-6,
     .About-portion .grid-1g-6,
     .Service-portion .grid-x1-4,
-    .Skill-portion .grid-x1-6{
+    .Skill-portion .grid-x1-6,
+    .Contact-portion .grid-x1-6,
+    .Contact-portion .grid-x1-5{
         margin-bottom: 20px;
     }
 
@@ -747,12 +807,16 @@ a {
 
     .Banner-Portion .grid-x1-6,
     .Service-portion .grid-x1-4,
-    .Skill-portion .grid-x1-6{
+    .Skill-portion .grid-x1-6,
+    .Contact-portion .grid-x1-6,
+    .Contact-portion .grid-x1-5{
         margin-bottom: 20px;
     }
 
     .Service-portion .grid-x1-4,
-    .Skill-portion .grid-x1-6{
+    .Skill-portion .grid-x1-6,
+    .Contact-portion .grid-x1-6,
+    .Contact-portion .grid-x1-5{
         margin-left: auto!important;
         margin-right: auto;!important;
     }
@@ -780,14 +844,22 @@ a {
         transform: translateX(-50%);
     }
 
+    .Contact-portion .grid-x1-12{
+        flex-direction: column;
+    }
+
     .Banner-Portion .grid-x1-6,
     .Service-portion .grid-x1-4,
-    .Skill-portion .grid-x1-6{
+    .Skill-portion .grid-x1-6,
+    .Contact-portion .grid-x1-6,
+    .Contact-portion .grid-x1-5{
         margin-bottom: 20px;
     }
 
     .Service-portion .grid-x1-4,
-    .Skill-portion .grid-x1-6{
+    .Skill-portion .grid-x1-6,
+    .Contact-portion .grid-x1-6,
+    .Contact-portion .grid-x1-5{
         margin-left: auto!important;
         margin-right: auto!important;
     }
