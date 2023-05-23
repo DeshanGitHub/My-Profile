@@ -43,6 +43,12 @@
     user-select: none;
     z-index: 1000;
     box-shadow: 0 1px 4px rgb(146 161 176);
+    transition: all 0.3s linear;
+}
+
+.Navbar-portion.sticky-nav{
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .Navbar-portion .nav-logo span,

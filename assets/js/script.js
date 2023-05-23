@@ -36,3 +36,13 @@ $(".small-drop-down").hide(0);
 $(".menu-btn").click(function () {
     $(".small-drop-down").fadeToggle(400);
 });
+
+/*STICKY NAV*/
+$(document).scroll(function (event) {
+    if($(document).scrollTop() > 150){
+        $('.Navbar-portion').addClass('sticky-nav');
+    }
+    if($(document).scrollTop() < 150){
+        $('.Navbar-portion').removeClass('sticky-nav');
+    }
+});
