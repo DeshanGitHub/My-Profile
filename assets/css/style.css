@@ -546,6 +546,10 @@ a {
 
 @media (min-width: 576px){
     /*576px to 967px small screen*/
+    .grid-sm-10{
+        width: 83.333333%;
+    }
+
     .grid-sm-11{
         width: 91.666667%;
     }
@@ -671,12 +675,14 @@ a {
 
     .Banner-Portion .grid-x1-6,
     .About-portion .grid-1g-6,
-    .Service-portion .grid-x1-4{
+    .Service-portion .grid-x1-4,
+    .Skill-portion .grid-x1-6{
         margin-bottom: 20px;
     }
 
     .About-portion .grid-1g-6,
-    .Service-portion .grid-x1-4{
+    .Service-portion .grid-x1-4,
+    .Skill-portion .grid-x1-6{
         margin-left: auto;!important;
         margin-right: auto;!important;
     }
@@ -706,11 +712,13 @@ a {
     }
 
     .Banner-Portion .grid-x1-6,
-    .Service-portion .grid-x1-4{
+    .Service-portion .grid-x1-4,
+    .Skill-portion .grid-x1-6{
         margin-bottom: 20px;
     }
 
-    .Service-portion .grid-x1-4{
+    .Service-portion .grid-x1-4,
+    .Skill-portion .grid-x1-6{
         margin-left: auto!important;
         margin-right: auto;!important;
     }
@@ -739,11 +747,13 @@ a {
     }
 
     .Banner-Portion .grid-x1-6,
-    .Service-portion .grid-x1-4{
+    .Service-portion .grid-x1-4,
+    .Skill-portion .grid-x1-6{
         margin-bottom: 20px;
     }
 
-    .Service-portion .grid-x1-4{
+    .Service-portion .grid-x1-4,
+    .Skill-portion .grid-x1-6{
         margin-left: auto!important;
         margin-right: auto!important;
     }
