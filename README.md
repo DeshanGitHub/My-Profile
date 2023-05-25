@@ -7,7 +7,7 @@
 
 ### Contents of the *myProject* folder
 
-* Internet Technology Class Assignments
+* Internet Technology Assignments
 * JavaEE POS
 * SPA POS
 * 2D Game
