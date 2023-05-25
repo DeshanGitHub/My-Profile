@@ -2,8 +2,8 @@
 
 ### Description
 
-* A Responsive Personal Portfolio Website Using HTML CSS& Javascript. To See Just Click 😜 : <code><a href="https://deshangithub.github.io/My-Profile/">Click here</a></code></p><br>
-* This repository has a folder called **myProjects** that contains some of my class assignments and projects.
+* A Responsive Personal Portfolio Website Using HTML CSS& Javascript. To See Just Click 😜 : <code><a href="https://deshangithub.github.io/My-Profile/">Click here</a></code></p>
+* This repository has a folder called ***myProjects*** that contains some of my class assignments and projects.
 
 ### Contents of the *myProject* folder
 
