@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2D Run Game</title>
-</head>
-<body>
-    <main>
-        <section>
-            <div>
-                <img class="bg1" src="assets/images/background.png" alt="Background Image">
-            </div>
-        </section>
-    </main>
-</body>
+<html>
+  <head>
+    <title>2D_Game</title>
+  </head>
+  <link rel="stylesheet" href="assets/style/style.css" />
+  <body class="body" onkeyup="key(event);">
+    <div class="b" id="b">
+      <img id="boy" class="boy" src="assets/images/Run (1).png" />
+      <p class="score" id="score">0</p>
+    </div>
+
+    <div class="end" id="end">
+      <div>Game Over!!</div>
+      <div>Your Score :</div>
+      <div id="endScore">0</div>
+      <button class="btn" onclick="re();">Try Again</button>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>
