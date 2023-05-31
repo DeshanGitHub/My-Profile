@@ -160,33 +160,33 @@ $("#txtUnitPrice").keydown(function (event) {
 // });
 
 /* ITEM SAVE METHOD */
-function saveItem() {
-    $("#tblItemBody>tr").off("click");
-
-    let itemCode = $("#txtItemCode").val();
-    let itemName = $("#txtItemNameId").val();
-    let itemQty = $("#txtItemQTY").val();
-    let itemPrice = $("#txtUnitPrice").val();
-
-    let row = `<tr><td>${itemCode}</td><td>${itemName}</td><td>${itemQty}</td><td>${itemPrice}</td></tr>`;
-
-    $("#tblItemBody").append(row);
-    clearItemTextFields();
-
-    $("#tblItemBody>tr").click(function () {
-        let tblItemCode = $(this).children(":eq(0)").text();
-        let tblItemName = $(this).children(":eq(1)").text();
-        let tblItemQty = $(this).children(":eq(2)").text();
-        let tblItemPrice = $(this).children(":eq(3)").text();
-
-        console.log(tblItemCode);
-
-        $("#txtItemCode").val(tblItemCode);
-        $("#txtItemNameId").val(tblItemName);
-        $("#txtItemQTY").val(tblItemQty);
-        $("#txtUnitPrice").val(tblItemPrice);
-    });
-}
+// function saveItem() {
+//     $("#tblItemBody>tr").off("click");
+//
+//     let itemCode = $("#txtItemCode").val();
+//     let itemName = $("#txtItemNameId").val();
+//     let itemQty = $("#txtItemQTY").val();
+//     let itemPrice = $("#txtUnitPrice").val();
+//
+//     let row = `<tr><td>${itemCode}</td><td>${itemName}</td><td>${itemQty}</td><td>${itemPrice}</td></tr>`;
+//
+//     $("#tblItemBody").append(row);
+//     clearItemTextFields();
+//
+//     $("#tblItemBody>tr").click(function () {
+//         let tblItemCode = $(this).children(":eq(0)").text();
+//         let tblItemName = $(this).children(":eq(1)").text();
+//         let tblItemQty = $(this).children(":eq(2)").text();
+//         let tblItemPrice = $(this).children(":eq(3)").text();
+//
+//         console.log(tblItemCode);
+//
+//         $("#txtItemCode").val(tblItemCode);
+//         $("#txtItemNameId").val(tblItemName);
+//         $("#txtItemQTY").val(tblItemQty);
+//         $("#txtUnitPrice").val(tblItemPrice);
+//     });
+// }
 
 /* CLEAR TEXT FIELDS */
 function clearItemTextFields() {
@@ -198,9 +198,136 @@ function clearItemTextFields() {
 
 //======================================================================================
 
+/*===========================CLEAR BUTTON ON ACTION==================================*/
+
+$("#btnClearTextFields").click(function () {
+    clearItemTextFields();
+    checkValidityForItemForm();
+    $('#txtItemCode').focus();
+});
+
+/*===========================/CLEAR BUTTON ON ACTION==================================*/
+
+/*===========================UPDATE BUTTON ON ACTION==================================*/
+
+//error Alert
+function updateErrorItemAlert() {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+    })
+}
+
+//update Alert
+function updateItemAlert() {
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Item Updated',
+        showConfirmButton: false,
+        timer: 1500
+    })
+}
+
+//update Item function
+function updateItem(itemCode) {
+    let item = searchItem(itemCode);
+    if (item != null) {
+        item.code = $("#txtItemCode").val();
+        item.name = $("#txtItemNameId").val();
+        item.qtyOnHand = $("#txtItemQTY").val();
+        item.price = $("#txtUnitPrice").val();
+        loadAllItems();
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//Btn Update Item
+$("#btnItemUpdate").click(function () {
+    let itemID = $("#txtItemCode").val();
+    let response = updateItem(itemID);
+    if (response) {
+        updateItemAlert();
+        clearItemTextFields();
+        bindItemRowClickEvents();
+        //generateItemID();
+        $('#txtItemCode').focus();
+    } else {
+        updateErrorItemAlert();
+        $('#txtItemCode').focus();
+    }
+});
+
+/*===========================/UPDATE BUTTON ON ACTION==================================*/
+
+/*===========================DELETE BUTTON ON ACTION==================================*/
+
+//delete error Alert
+function deleteErrorItemAlert() {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+    })
+}
+
+//delete alert
+function deleteItemAlert() {
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Item Deleted',
+        showConfirmButton: false,
+        timer: 1500
+    })
+}
+
+//Search Item function
+function searchItem(itemCode) {
+    for (let item of items) {
+        if (item.code == itemCode) {
+            return item;
+        }
+    }
+    return null;
+}
+
+//Delete item function
+function deleteItem(itemCode) {
+    let item = searchItem(itemCode);
+    if (item != null) {
+        let itemIndexNumber = items.indexOf(item);
+        items.splice(itemIndexNumber, 1);
+        loadAllItems();
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
+
+//Btn Delete Item
+$("#btnItemDelete").click(function () {
+    let deleteItemID = $("#txtItemCode").val();
+    if (deleteItem(deleteItemID)) {
+        deleteItemAlert();
+        clearItemTextFields();
+        //generateItemID();
+        $('#txtItemCode').focus();
+    } else {
+        deleteErrorItemAlert();
+        $('#txtItemCode').focus();
+    }
+
+});
+
+/*===========================/DELETE BUTTON ON ACTION==================================*/
+
 /*===========================SAVE BUTTON ON ACTION==================================*/
-
-
 
 //when click table row data auto fill into text fields
 function bindItemRowClickEvents() {
