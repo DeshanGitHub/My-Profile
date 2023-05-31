@@ -43,6 +43,7 @@ $("#itemFormLoadButtonId").click(function () {
 });
 
 $("#customerFormLoadButtonId").click(function () {
+
   $("#itemSectionId").css("display", "none");
   $("#customerSectionId").css("display", "block");
   $("#orderSectionId").css("display", "none");
@@ -54,9 +55,10 @@ $("#customerFormLoadButtonId").click(function () {
   $("#itemFormLoadButtonId").removeClass("active");
   $("#orderFormLoadButtonId").removeClass("active");
 
-
   /* CUSTOMER TEXT FIELD FOCUS WHEN OPEN CUSTOMER FIELDS */
   $("#txtCusID").focus();
+
+
 });
 
 $("#orderFormLoadButtonId").click(function () {

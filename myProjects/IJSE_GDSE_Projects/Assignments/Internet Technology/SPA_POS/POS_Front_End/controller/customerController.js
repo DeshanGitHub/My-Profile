@@ -1,6 +1,6 @@
 /*========================FIRSTLY MADE CUSTOMER SCRIPT========================*/
 
-$("#txtCusID").focus();
+//$("#txtCusID").focus();
 
 /* CUSTOMER TEXT FIELDS VALIDATION */
 const cusIDRegEx = /^(C00-)[0-9]{1,3}$/;
