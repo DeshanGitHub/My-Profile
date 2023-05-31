@@ -316,6 +316,10 @@ $("#btnItemDelete").click(function () {
     if (deleteItem(deleteItemID)) {
         deleteItemAlert();
         clearItemTextFields();
+        setItemsCount();
+        //load itemCode to combo box
+        loadAllItemsForOption();
+
         //generateItemID();
         $('#txtItemCode').focus();
     } else {
