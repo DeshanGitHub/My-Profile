@@ -6,6 +6,11 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <!--SWEET ALERT LINK-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!--MY STYLES-->
+    <link href="assets/css/styles.css" rel="stylesheet" />
+    <!--/MY STYLES-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <title>SPA_POS</title>
 </head>
@@ -51,6 +56,56 @@
         <div class="rounded-3 p-3" style="background-color: #a6b9eb; margin-top: 30px;">
             <h1 class="text-center mb-3"><i class="bi bi-people-fill m-2"></i>Home Page</h1>
         </div>
+
+
+            <div class="jumbotron pt-md-5">
+                <div id="home-tiles">
+                    <div class="row ">
+                        <div class="col-lg-6 col-xl-3 mb-2">
+                            <div class="card">
+                                <div class="card-header bg-danger font-weight-bolder">Customers</div>
+                                <div class="card-body">
+                                    <div class="dash-tile-icon"><i class="fas fa-users"></i></div>
+                                    <div class="dash-tile-text text-right text-black-50"><h2 id="customersCount">0</h2></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xl-3 mb-2">
+                            <div class="card">
+                                <div class="card-header bg-danger font-weight-bolder">Items</div>
+                                <div class="card-body">
+                                    <div class="dash-tile-icon"><i class="fas fa-cubes"></i></div>
+                                    <div class="dash-tile-text text-right text-black-50"><h2 id="itemsCount">0</h2></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xl-3 mb-2">
+                            <div class="card">
+                                <div class="card-header bg-danger font-weight-bolder">My Orders</div>
+                                <div class="card-body">
+                                    <div class="dash-tile-icon"><i class="fas fa-shopping-cart"></i></div>
+                                    <div class="dash-tile-text text-right text-black-50"><h2 id="ordersCount">0</h2></div>
+                                </div>
+                            </div>
+                        </div>
+<!--                        <div class="col-lg-6 col-xl-3 mb-2">-->
+<!--                            <div class="card">-->
+<!--                                <div class="card-header bg-danger font-weight-bolder">Settings</div>-->
+<!--                                <div class="card-body">-->
+<!--                                    <div class="dash-tile-icon" style=""><i class="fas fa-cogs"></i></div>-->
+<!--                                    <div class="dash-tile-text text-right text-black-50">-->
+<!--                                        <h2>-->
+<!--                                            <button class="btn btn-danger">new</button>-->
+<!--                                        </h2>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                    </div>
+                </div>
+            </div>
+
+
 
     </section>
 
@@ -252,8 +307,8 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col">
-                                    <label class="form-label fw-bold" for="cusCmb">Customer ID:</label>
-                                    <select class="form-select" id="cusCmb">
+                                    <label class="form-label fw-bold" for="inputCustomerID">Customer ID:</label>
+                                    <select class="form-select" id="inputCustomerID">
 
                                     </select>
                                 </div>
@@ -409,10 +464,31 @@
     </section>
     <!--/ORDER SECTION-->
 
+    <!-- FOR SWEET ALERT -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- /FOR SWEET ALERT -->
+    <!--FONT AWESOME ICON-->
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/f7d94b6141.js"></script>
+    <!--/FONT AWESOME ICON-->
+
     <script src="assets/js/jQuery/jquery-3.6.0.min.js"></script>
     <script src="assets/js/script.js"></script>
-    <script src="assets/js/scriptCustomerForm.js"></script>
+<!--    <script src="assets/js/scriptCustomerForm.js"></script>-->
     <script src="assets/js/scriptItemForm.js"></script>
+
+    <!--CONTROLLERS -->
+    <script src="controller/customerController.js"></script>
+    <script src="controller/homePageController.js"></script>
+    <script src="controller/orderController.js"></script>
+    <!--/CONTROLLERS -->
+
+    <!--MODELS-->
+    <script src="model/customer.js"></script>
+    <!--/MODELS-->
+
+    <!--DB-->
+    <script src="db/db.js"></script>
+    <!--/DB-->
 </body>
 
 </html>
