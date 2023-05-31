@@ -90,10 +90,30 @@ function placeOrder() {
             orderDetails.push(oDetails);
 
         }
-        alert("Successfully place order..");
+        purchasedOrderAlert();
     } else {
-        alert("UnSuccessfully..Something went Wrong !!!");
+        purchasedOrderErrorAlert();
     }
+}
+
+//update error Alert
+function purchasedOrderErrorAlert() {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+    })
+}
+
+//update Alert
+function purchasedOrderAlert() {
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Successfully Purchased Order.',
+        showConfirmButton: false,
+        timer: 1500
+    })
 }
 
 $('#btnPurchaseId').click(function () {
@@ -108,7 +128,7 @@ $('#btnPurchaseId').click(function () {
     $("#txtOId,#txtCusNameInvoice,#txtCusAddressInvoice,#txtItemName,#txtQtyOnHand,#txtPrice,#txtOrderQty,#txtCashId,#txtBalanceId").val("");
     $("#pTotalId ,#pBalanceId").text("0.00");
 
-    $('#btnPlaceOrderButton').attr('disabled', true);
+    $('#btnPurchaseId').attr('disabled', true);
     clearField();
 
 });
