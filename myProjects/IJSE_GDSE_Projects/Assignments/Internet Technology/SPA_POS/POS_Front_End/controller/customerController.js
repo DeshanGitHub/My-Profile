@@ -201,6 +201,130 @@ function clearCustomerTextFields() {
 
 /*========================/FIRSTLY MADE CUSTOMER SCRIPT========================*/
 
+/*===============UPDATE CUSTOMER BUTTON ON ACTION====================*/
+
+//update error Alert
+function updateErrorCustomerAlert() {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+    })
+}
+
+//update Alert
+function updateCustomerAlert() {
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Customer Updated',
+        showConfirmButton: false,
+        timer: 1500
+    })
+}
+
+//update Customer function
+function updateCustomer(customerID) {
+    let customer = searchCustomer(customerID);
+    if (customer != null) {
+        customer.id = $('#txtCusID').val();
+        customer.name = $('#txtCusName').val();
+        customer.address = $('#txtCusAddress').val();
+        customer.contactNumber = $('#txtCusPhnNum').val();
+        loadAllCustomers();
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//Btn Update Customer
+$("#btnUpdateCustomer").click(function () {
+    let customerID = $("#txtCusID").val();
+    let response = updateCustomer(customerID);
+    if (response) {
+        updateCustomerAlert();
+        clearCustomerTextFields();
+        //generateCustomerID();
+        $('#txtCusID').focus();
+    } else {
+        updateErrorCustomerAlert();
+        $('#txtCusID').focus();
+    }
+});
+/*===============/UPDATE CUSTOMER BUTTON ON ACTION====================*/
+
+/*===============DELETE CUSTOMER BUTTON ON ACTION====================*/
+
+//delete error Alert
+function deleteErrorCustomerAlert() {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+    })
+}
+
+//delete alert
+function deleteCustomerAlert() {
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Customer Deleted',
+        showConfirmButton: false,
+        timer: 1500
+    })
+}
+
+//Search customer function
+function searchCustomer(cusID) {
+    for (let customer of customers) {
+        if (customer.id == cusID) {
+            return customer;
+        }
+    }
+    return null;
+}
+
+//Delete customer function
+function deleteCustomer(customerID) {
+
+    let customer = searchCustomer(customerID);
+    if (customer != null) {
+        let customerIndexNumber = customers.indexOf(customer);
+        customers.splice(customerIndexNumber, 1);
+        loadAllCustomers();
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//Btn Delete Customer
+$("#btnDeleteCustomer").click(function () {
+    let deleteCustomerID = $('#txtCusID').val();
+
+    if (deleteCustomer(deleteCustomerID)) {
+
+        deleteCustomerAlert();
+        clearCustomerTextFields();
+        //generateCustomerID();
+        $('#txtCusID').focus();
+
+        setCusCount();
+
+        //LOAD CUSTOMER ID TO ORDER PAGE COMBO BOX
+        loadAllCustomersForOption();
+    } else {
+
+        deleteErrorCustomerAlert();
+        $('#txtCusID').focus();
+    }
+
+
+});
+
+/*=================/DELETE CUSTOMER BUTTON ON ACTION=================*/
 
 /*SAVE CUSTOMER ON ACTION*/
 $('#btnSaveCustomer').click(function () {
@@ -231,7 +355,7 @@ function saveCustomer() {
 
     bindCustomerRowClickEvents();
 
-    //saveCustomerAlert();
+    saveCustomerAlert();
 
     clearCustomerTextFields();
 
@@ -286,7 +410,7 @@ function loadAllCustomers() {
         $('#tblCustomerBody').append(row);
     }
 
-    saveCustomerAlert();
+    //saveCustomerAlert();
 }
 
 //Save Alert
