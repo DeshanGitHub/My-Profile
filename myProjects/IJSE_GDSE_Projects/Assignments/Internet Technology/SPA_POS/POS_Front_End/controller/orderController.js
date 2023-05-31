@@ -7,6 +7,113 @@ $('#btnAddToCart').attr("disabled", true);
 //Disable Purchase Button
 $('#btnPurchaseId').attr("disabled", true);
 
+//CREATE VARIABLE TO SAVE TOTAL
+let tot = 0;
+
+/*=======================FIND BALANCE TO PAY==========================*/
+//discount function
+$('#txtCashId').on('keyup', function () {
+
+    if (tot < 0) {
+        $('#pBalanceId').text("0.00");
+    } else {
+        //let tot = parseFloat(tempTot);
+        //let dis = tot / 100 * parseFloat($("#txtDiscount").val());
+
+        //$('#subTotal').text(tot - dis);
+
+        let cash = parseInt($("#txtCashId").val());
+        //let subTot = parseInt($("#subTotal").text());
+        $("#pBalanceId").text(cash - tot);
+        $("#txtBalanceId").val(cash-tot);
+    }
+});
+/*=======================/FIND BALANCE TO PAY==========================*/
+
+/*=======================PLACE ORDER BUTTON ON CLICK==========================*/
+function clearField() {
+    $('#inputCustomerID').val('');
+    $('#itemCmb').val('');
+
+    //TODO
+    // $('#txtCusID').val('');
+    // $('#txtCusName').val('');
+    // $('#txtCusAddress').val('');
+    // $('#txtCusSalary').val('');
+    //
+    // $('#inputItemID').val('');
+    // $('#itemName').val('');
+    // $('#itemonHand').val('');
+    // $('#itemPrice').val('');
+    // $('#itemorderQty').val('');
+
+}
+
+function saveOrder() {
+    let oid = $('#txtOId').val();
+    let cid = $('#inputCustomerID').val();
+    let date;
+    if ($("#txtDate").val() === "") {
+        // date = $("#currentDate").text();
+    } else {
+        date = $("#txtDate").val();
+    }
+
+    let fullTot = tot;
+
+    let NewOrder = orderModel(oid, cid, date, fullTot);
+    let isSaved = order.push(NewOrder);
+
+    if (isSaved) {
+        return true;
+    } else {
+    }
+}
+
+function placeOrder() {
+
+    if (saveOrder()) {
+        let date;
+        if ($("#txtDate").val() === "") {
+
+        } else {
+            date = $("#txtDate").val();
+        }
+        //let discount = $('#txtDiscount').val();
+        let cName = $('#txtCusNameInvoice').val();
+        // let cid = $('#txtCusID').val();
+        let cid = $('#inputCustomerID').val();
+
+        //TODO
+        for (let c of cart) {
+            let oDetails = orderDetailsModel(c.CartOid, date, cid, cName, c.cartICode, c.cartIName, c.cartOrderQty, c.cartTotal);
+            orderDetails.push(oDetails);
+
+        }
+        alert("Successfully place order..");
+    } else {
+        alert("UnSuccessfully..Something went Wrong !!!");
+    }
+}
+
+$('#btnPurchaseId').click(function () {
+
+    placeOrder();
+    generateOrderID();
+    setOrdersCount();
+
+    cart.splice(0, cart.length);
+    $('#tblCartTableBody').empty();
+
+    $("#txtOId,#txtCusNameInvoice,#txtCusAddressInvoice,#txtItemName,#txtQtyOnHand,#txtPrice,#txtOrderQty,#txtCashId,#txtBalanceId").val("");
+    $("#pTotalId ,#pBalanceId").text("0.00");
+
+    $('#btnPlaceOrderButton').attr('disabled', true);
+    clearField();
+
+});
+/*=======================PLACE ORDER BUTTON ON CLICK==========================*/
+
 /*=======================CREATE ORDER ID==========================*/
 //Generate Order ID
 function generateOrderID() {
@@ -140,6 +247,18 @@ function addToCart() {
 
 }
 
+//Calculate total
+function calculateTotal() {
+    tot=0;
+    $('#tblCartTableBody>tr').each(function () {
+        tot = tot + parseFloat($($(this).children().get(4)).text());
+        $('#pTotalId').text(tot).append('.00');
+
+    });
+    //tempTot = tot;
+
+}
+
 //btn add to cart
 $('#btnAddToCart').click(function () {
     let qtyOnHand = parseInt($('#txtQtyOnHand').val());
@@ -154,7 +273,7 @@ $('#btnAddToCart').click(function () {
             addToCart();
 
             loadAllCart();
-            //calculateTotal();
+            calculateTotal();
         }
     } else {
         alert("please Enter Order Quantity..");

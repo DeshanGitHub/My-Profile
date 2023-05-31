@@ -5,3 +5,5 @@ let items = [];
 let cart =[];
 
 let order=[];
+
+let orderDetails=[];

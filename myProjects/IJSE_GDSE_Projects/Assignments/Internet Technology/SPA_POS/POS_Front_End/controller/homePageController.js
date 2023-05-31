@@ -1,3 +1,12 @@
+//set Place Orders Count in dashboard
+function setOrdersCount(){
+    let ordersCount=0;
+    for (let order of orderDetails) {
+        ordersCount=ordersCount+1;
+    }
+    $('#ordersCount').text(ordersCount);
+}
+
 //set Save Items Count in dashboard
 function setItemsCount(){
     let itemsCount=0;

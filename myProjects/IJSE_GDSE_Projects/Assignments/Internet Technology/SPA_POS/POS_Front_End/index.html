@@ -36,10 +36,13 @@
                             <a class="nav-link " id="customerFormLoadButtonId">Customer</a>
                         </li>
                         <li class="nav-item">
-                            <a aria-current="page" class="nav-link" id="itemFormLoadButtonId">Item</a>
+                            <a  class="nav-link" id="itemFormLoadButtonId">Item</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="orderFormLoadButtonId">Order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="orderDetailFormLoadButtonId">Order Details</a>
                         </li>
                     </ul>
                 </div>
@@ -464,6 +467,49 @@
     </section>
     <!--/ORDER SECTION-->
 
+    <!--ORDER DETAILS SECTION-->
+
+    <section id="orderDetailsSection">
+        <!--order details Headline-->
+        <div class="rounded-3 p-3" style="background-color: #a6b9eb; margin-top: 30px;">
+            <h1 class="text-center mb-3"><i class="bi bi-people-fill m-2"></i>Order Details</h1>
+        </div>
+
+        <!-- Search Bar -->
+        <section class="row mb-3 container-fluid mt-3">
+            <form class="d-flex col-5" role="search">
+                <input aria-label="Search" class="form-control me-2 " id="txtOrderDetailsSearch" placeholder="orderID"
+                       type="search">
+            </form>
+
+        </section>
+
+        <!--  order details Table -->
+        <section class="row container-fluid">
+            <div class="container-fluid col-12">
+                <table class="table table-primary table-striped" id="orderDetailsTable_Main">
+                    <thead >
+                    <tr class="">
+                        <th>Order ID</th>
+                        <th>Date</th>
+                        <th>Customer Id</th>
+                        <th>Customer Name</th>
+                        <th>Item Code</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody id="orderDetailTable">
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+
+    <!--/ORDER DETAILS SECTION-->
+
     <!-- FOR SWEET ALERT -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- /FOR SWEET ALERT -->
@@ -481,6 +527,7 @@
     <script src="controller/homePageController.js"></script>
     <script src="controller/orderController.js"></script>
     <script src="controller/itemController.js"></script>
+    <script src="controller/orderDetailController.js"></script>
     <!--/CONTROLLERS -->
 
     <!--MODELS-->
@@ -488,6 +535,7 @@
     <script src="model/item.js"></script>
     <script src="model/cart.js"></script>
     <script src="model/order.js"></script>
+    <script src="model/orderDetail.js"></script>
     <!--/MODELS-->
 
     <!--DB-->
