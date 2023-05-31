@@ -201,6 +201,18 @@ function clearCustomerTextFields() {
 
 /*========================/FIRSTLY MADE CUSTOMER SCRIPT========================*/
 
+/*===============SEARCH CUSTOMER====================*/
+
+//Customer Search Bar
+$('#txtSearchCusID').on('keyup', function () {
+    var value = $(this).val().toLowerCase();
+    $('#tblCustomerBody>tr').filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+});
+
+/*===============/SEARCH CUSTOMER====================*/
+
 /*===============UPDATE CUSTOMER BUTTON ON ACTION====================*/
 
 //update error Alert
